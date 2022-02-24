@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel>
+<schema name="public" protected="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<database name="new_database">
+</database>
+
+<table name="Branch">
+	<schema name="public"/>
+	<position x="62" y="60"/>
+	<column name="id_branch">
+		<type name="integer"/>
+	</column>
+	<column name="name_branch">
+		<type name="text"/>
+	</column>
+	<column name="region_branch">
+		<type name="text"/>
+	</column>
+	<column name="city_branch">
+		<type name="text"/>
+	</column>
+	<column name="address_branch">
+		<type name="text"/>
+	</column>
+	<column name="address_number_branch">
+		<type name="text"/>
+	</column>
+	<constraint name="id_branch" type="pk-constr" factor="10" table="public.&quot;Branch&quot;">
+		<columns names="id_branch" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Agent">
+	<schema name="public"/>
+	<position x="81.4444" y="278.778"/>
+	<column name="id_agent">
+		<type name="integer"/>
+	</column>
+	<column name="surname">
+		<type name="text"/>
+	</column>
+	<column name="name">
+		<type name="text"/>
+	</column>
+	<column name="date_birtday">
+		<type name="date"/>
+	</column>
+	<column name="phone_number">
+		<type name="bigint"/>
+	</column>
+	<column name="role">
+		<type name="text"/>
+	</column>
+	<constraint name="id_agent" type="pk-constr" factor="10" table="public.&quot;Agent&quot;">
+		<columns names="id_agent" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="product">
+	<schema name="public"/>
+	<position x="421.111" y="58.8889"/>
+	<column name="id_product">
+		<type name="bigint"/>
+	</column>
+	<column name="name">
+		<type name="text"/>
+	</column>
+	<column name="manufacturer">
+		<type name="text"/>
+		<comment><![CDATA[производитель]]></comment>
+	</column>
+	<column name="count">
+		<type name="bigint"/>
+	</column>
+	<column name="price">
+		<type name="bigint"/>
+	</column>
+	<constraint name="id_product" type="pk-constr" factor="10" table="public.product">
+		<columns names="id_product" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="waybill">
+	<schema name="public"/>
+	<comment><![CDATA[накладная]]></comment>
+	<position x="366.667" y="404.444"/>
+	<column name="id_waybill">
+		<type name="bigint"/>
+	</column>
+	<column name="date_of_waybill">
+		<type name="date"/>
+	</column>
+	<column name="operation">
+		<type name="text"/>
+	</column>
+	<column name="note">
+		<type name="text"/>
+	</column>
+	<constraint name="id_waybill" type="pk-constr" factor="10" table="public.waybill">
+		<columns names="id_waybill" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="provider">
+	<schema name="public"/>
+	<position x="81.1111" y="441.111"/>
+	<column name="id_provider">
+		<type name="integer"/>
+	</column>
+	<column name="name">
+		<type name="text"/>
+	</column>
+	<column name="mail">
+		<type name="text"/>
+	</column>
+	<column name="phone">
+		<type name="text"/>
+	</column>
+	<constraint name="id_provider" type="pk-constr" factor="10" table="public.provider">
+		<columns names="id_provider" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="Branch_has_many_Agent" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 col-indexes="6" constr-indexes="1"
+	 src-table="public.&quot;Branch&quot;"
+	 dst-table="public.&quot;Agent&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Agent_has_many_waybill" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 col-indexes="4" constr-indexes="1"
+	 src-table="public.&quot;Agent&quot;"
+	 dst-table="public.waybill"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="provider_has_many_waybill" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 col-indexes="5" constr-indexes="2"
+	 src-table="public.provider"
+	 dst-table="public.waybill"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="many_product_has_many_waybill" type="relnn"
+	 src-col-pattern="{sc}_{st}" dst-col-pattern="{sc}_{dt}"
+	 pk-pattern="{gt}_pk" uq-pattern="{gt}_uq"
+	 src-fk-pattern="{st}_fk" dst-fk-pattern="{dt}_fk"
+	 src-table="public.product"
+	 dst-table="public.waybill"
+	 src-required="false" dst-required="false"	 table-name="many_product_has_many_waybill"/>
+
+</dbmodel>

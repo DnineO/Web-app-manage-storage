@@ -1,0 +1,9 @@
+body {
+  padding-top: 5rem;
+}
+
+.blockred{
+  height: 100px;
+  width: 300px;
+  background-color: red;
+}

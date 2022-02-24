@@ -1,0 +1,16 @@
+накладные
+
+Приходные ордера
+
+Поставщики
+
+https://www.bibliofond.ru/view.aspx?id=872213
+https://www.bibliofond.ru/view.aspx?id=791948
+https://ru.stackoverflow.com/questions/498660/Структура-бд-для-ведения-склада
+https://www.cyberforum.ru/ms-access/thread83306.html
+
+NOTED
+повторное хранение док-а по возможности к товару/номеру
+безопасность пароля, хранить хэш, шифровать почту
+
+админу дб - сделать меню

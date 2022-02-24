@@ -1,0 +1,86 @@
+DROP TABLE public."Product";
+DROP TABLE public."Waybill";
+DROP TABLE public."Provider";
+DROP TABLE public."Agent";
+DROP TABLE public."Branch";
+
+
+
+--table branch
+CREATE TABLE public."Branch"(
+	
+	id_branch serial not null,
+	name_branch varchar,
+	city_branch varchar,
+	CONSTRAINT id_branch PRIMARY KEY (id_branch)
+
+);
+
+
+-- agent
+CREATE TABLE public."Agent"(
+	
+	id_agent serial not null,
+	surname varchar,
+	firstname varchar,
+	date_birthday date,
+	role_personal varchar,
+	pass varchar,
+	id_branch_Branch integer NOT null,
+	CONSTRAINT id_agent PRIMARY KEY (id_agent),
+	CONSTRAINT "date_of_birth" CHECK (date_birthday <= '2004-01-01')
+	
+);
+
+ALTER TABLE public."Agent" ADD CONSTRAINT id_branch_FK FOREIGN KEY (id_branch_Branch)
+REFERENCES public."Branch" (id_branch) MATCH FULL
+ON DELETE RESTRICT ON UPDATE CASCADE;
+
+ALTER TABLE IF EXISTS public."Agent"
+    RENAME id_branch_branch TO "id_branch_FK";
+	
+	
+--table provider
+CREATE TABLE public."Provider"(
+	
+	id_provider serial not null,
+	name_provider varchar,
+	mail varchar,
+	phone varchar,
+	CONSTRAINT id_provider PRIMARY KEY (id_provider)
+	
+);
+
+CREATE TABLE public."Waybill"(
+	
+	id_waybill serial not null,
+	operation varchar,
+	date_of_waybill date,
+	note text,
+	id_agent_FK integer NOT NULL,
+	id_provider_FK integer NOT NULL,
+	CONSTRAINT id_waybill PRIMARY KEY (id_waybill),
+	CONSTRAINT "check_date" CHECK (date_of_waybill < now())
+	
+);
+
+ALTER TABLE public."Waybill" ADD CONSTRAINT id_agent_FK FOREIGN KEY (id_agent_FK)
+REFERENCES public."Agent" (id_agent) MATCH FULL
+ON DELETE RESTRICT ON UPDATE CASCADE;
+
+ALTER TABLE public."Waybill" ADD CONSTRAINT id_provider_FK FOREIGN KEY (id_provider_FK)
+REFERENCES public."Provider" (id_provider) MATCH FULL
+ON DELETE RESTRICT ON UPDATE CASCADE;
+
+
+CREATE TABLE public."Product"(
+
+	id_product serial NOT NULL,
+	name_product varchar,
+	manufacturer varchar,
+	counter bigint,
+	price bigint,
+	CONSTRAINT id_product PRIMARY KEY (id_product),
+	CONSTRAINT "count" CHECK (counter > '0')
+	
+)
