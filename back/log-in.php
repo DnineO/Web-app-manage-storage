@@ -20,7 +20,7 @@ if (isset($_POST['name']) && !empty($_POST['name']) )
 
     var_dump($result);
     echo(empty($result));
-
+//    TODO: проверку админ или пользователь
     if (!empty($result)){
          session_start();
              $_SESSION['name'] = $login;
