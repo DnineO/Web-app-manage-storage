@@ -24,7 +24,7 @@ if (isset($_POST['name']) && !empty($_POST['name']) )
     if (!empty($result)){
          session_start();
              $_SESSION['name'] = $login;
-             header('Location: http://localhost/pages/main_page.php');
+             header('Location: http://localhost/users/main_page.php');
       }
     else{
         $error = "reg error";
