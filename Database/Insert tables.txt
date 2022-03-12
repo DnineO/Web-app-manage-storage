@@ -12,7 +12,7 @@ INSERT INTO public."Product"(
 	
 INSERT INTO public."Branch"(
 	id_branch, name_branch, city_branch)
-	VALUES (?, ?, ?);
+	VALUES ('1', 'Склад №1', 'Чита');
 	
 INSERT INTO public."Agent"(
 	id_agent, surname, firstname, date_birthday, role_personal, pass, "id_branch_FK")
