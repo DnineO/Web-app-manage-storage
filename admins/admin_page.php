@@ -4,6 +4,6 @@ require_once dirname(__DIR__, 1)."/back/query.php";
 require_once dirname(__DIR__, 1)."/back/templates.php";
 require_once dirname(__DIR__, 1)."/back/functions.php";
 
-showPageIfLogged('Main-page admin',render_template_main_admin_page());
-?>
+showPageIfLogged('Admin page',render_template_admin_page());
 
+?>
