@@ -5,6 +5,7 @@
         <a class="navbar-brand"  href="#">  </a>
         <ul class="nav">
             <a class="navbar-brand"> <?=$name?> </a>
+            <a class="navbar-brand" href="../admins/main_admin_page.php"> главная </a>
                 <ul>
                     <li><a class="navbar-brand" href="../admins/admin_page.php">профиль </a></li>
                     <li><a class="navbar-brand"  href="../back/log-out.php"> выйти</a></li>
