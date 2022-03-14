@@ -6,11 +6,19 @@ if (session_status() == PHP_SESSION_NONE){
 require_once dirname(__DIR__,1)."/back/query.php";
 require_once dirname(__DIR__,1)."/back/templates.php";
 
+
 if (isset($_SESSION['name'])){
-    $navigation = template("D:/XAMMP/htdocs/templates/navigation_admin_template.php",['name'=>$_SESSION['name']]);
+    $surname = $_SESSION['name']; //name user
+    $role = get_role($surname);
+    if ($role[0]["role_personal"] == "admin"){
+        $navigation = template("D:/XAMMP/htdocs/templates/navigation_admin_template.php",['name'=>$_SESSION['name']]);
+    }
+    else{
+        $navigation = template("D:/XAMMP/htdocs/templates/navigation_user_template.php",['name'=>$_SESSION['name']]);
+    }
 }
 else{
-    $navigation = template("D:/XAMMP/htdocs/templates/navigation_user_template.php",[]);
+    $navigation = template("D:/XAMMP/htdocs/templates/navigation_template.php",[]);
 }
 
 ?>
