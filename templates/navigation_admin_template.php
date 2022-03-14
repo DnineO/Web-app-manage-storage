@@ -6,7 +6,7 @@
         <ul class="nav">
             <a class="navbar-brand"> <?=$name?> </a>
                 <ul>
-                    <li><a class="navbar-brand" href="../users/user_page.php">профиль </a></li>
+                    <li><a class="navbar-brand" href="../admins/admin_page.php">профиль </a></li>
                     <li><a class="navbar-brand"  href="../back/log-out.php"> выйти</a></li>
                 </ul>
         </ul>
