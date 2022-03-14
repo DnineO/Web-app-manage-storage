@@ -13,6 +13,7 @@ function template($file, $args){
     if ( is_array( $args ) ){
         extract( $args );
     }
+//    echo extract($args);
 
     // буфферезируем вывод
     ob_start();
@@ -39,4 +40,18 @@ function render_template_index_form(){
 // Рендер главной страницы TODO: наполнение(к примеру список, товаров, документов)
 function render_template_main_page(){
     return template(dirname(__DIR__,1).'/templates/main_page_template.php',[]);
+}
+
+// Рендер страницы юзера
+function render_template_user_page(){
+    return template(dirname(__DIR__,1).'/templates/user_page_template.php',[]);
+}
+
+// Рендер главной страницы админа
+function render_template_main_admin_page(){
+    return template(dirname(__DIR__,1).'/templates/main_admin_page_template.php',[]);
+}
+
+function render_template_admin_page(){
+    return template(dirname(__DIR__,1).'/templates/admin_page_template.php',[]);
 }
