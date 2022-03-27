@@ -15,8 +15,10 @@
 
     // Возврат роли юзера
     function get_role($surname){
-        return pg_fetch_all(query("select \"role_personal\" from \"Agent\" where '$surname' = \"surname\" "));
+        return pg_fetch_all(query("select \"role_personal\" from \"Agent\" where '$surname' = \"surname\""));
     }
 
-
+    function get_admin($surname){
+        return pg_fetch_all(query("select * from \"Agent\" where '$surname' = \"surname\""));
+    }
 ?>

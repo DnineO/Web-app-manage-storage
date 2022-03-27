@@ -1,11 +1,3 @@
-<?php
-if (session_status() == PHP_SESSION_NONE){
-    session_start();
-}
-$surname = $_SESSION['name'];
-?>
-
-
 <div>
     <h1> User profile page <?=$surname?></h1>
 
