@@ -10,8 +10,8 @@ DROP TABLE public."Branch";
 CREATE TABLE public."Branch"(
 	
 	id_branch serial not null,
-	name_branch varchar,
-	city_branch varchar,
+	name_branch varchar, --название
+	city_branch varchar, --город
 	CONSTRAINT id_branch PRIMARY KEY (id_branch)
 
 );
@@ -21,12 +21,12 @@ CREATE TABLE public."Branch"(
 CREATE TABLE public."Agent"(
 	
 	id_agent serial not null,
-	surname varchar,
-	firstname varchar,
-	date_birthday date,
-	role_personal varchar,
-	pass varchar,
-	id_branch_Branch integer NOT null,
+	surname varchar, --фамилия/логин
+	firstname varchar, --имя
+	date_birthday date, --др
+	role_personal varchar, --роль
+	pass varchar, --пароль
+	id_branch_Branch integer NOT null, --№отделения
 	CONSTRAINT id_agent PRIMARY KEY (id_agent),
 	CONSTRAINT "date_of_birth" CHECK (date_birthday <= '2004-01-01')
 	
@@ -44,9 +44,10 @@ ALTER TABLE IF EXISTS public."Agent"
 CREATE TABLE public."Provider"(
 	
 	id_provider serial not null,
-	name_provider varchar,
-	mail varchar,
-	phone varchar,
+	name_provider varchar, --имя поставщика
+	mail varchar, --почта
+	phone varchar, --телефон
+	address varchar, --адрес
 	CONSTRAINT id_provider PRIMARY KEY (id_provider)
 	
 );
@@ -54,11 +55,12 @@ CREATE TABLE public."Provider"(
 CREATE TABLE public."Waybill"(
 	
 	id_waybill serial not null,
-	operation varchar,
-	date_of_waybill date,
-	note text,
-	id_agent_FK integer NOT NULL,
-	id_provider_FK integer NOT NULL,
+	operation varchar, --операция
+	date_of_waybill date, --дата
+	note text, --пояснение
+	id_agent_FK integer NOT NULL, --кем
+	id_provider_FK integer, --от кого
+	id_customer_FT integer, --кому
 	CONSTRAINT id_waybill PRIMARY KEY (id_waybill),
 	CONSTRAINT "check_date" CHECK (date_of_waybill < now())
 	
@@ -76,11 +78,13 @@ ON DELETE RESTRICT ON UPDATE CASCADE;
 CREATE TABLE public."Product"(
 
 	id_product serial NOT NULL,
-	name_product varchar,
-	manufacturer varchar,
-	counter bigint,
-	price bigint,
+	name_product varchar, --наименование
+	size varchar, --диаметр/периметр
+	material varchar, --материал
+	--counter int, --количество
+	length int, --длина
+	price bigint, --цена за шт
 	CONSTRAINT id_product PRIMARY KEY (id_product),
-	CONSTRAINT "count" CHECK (counter > '0')
+	--CONSTRAINT "count" CHECK (counter > '0')
 	
 )

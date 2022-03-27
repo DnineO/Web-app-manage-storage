@@ -89,7 +89,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="waybill">
 	<schema name="public"/>
 	<comment><![CDATA[накладная]]></comment>
-	<position x="366.667" y="404.444"/>
+	<position x="405.667" y="332.444"/>
 	<column name="id_waybill">
 		<type name="bigint"/>
 	</column>
@@ -109,7 +109,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <table name="provider">
 	<schema name="public"/>
-	<position x="81.1111" y="441.111"/>
+	<position x="110.111" y="440.111"/>
 	<column name="id_provider">
 		<type name="integer"/>
 	</column>

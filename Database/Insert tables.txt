@@ -1,14 +1,14 @@
 INSERT INTO public."Waybill"(
-	id_waybill, operation, date_of_waybill, note, id_agent_fk, id_provider_fk)
-	VALUES (?, ?, ?, ?, ?, ?);
+	id_waybill, operation, date_of_waybill, note, id_agent_fk, id_provider_fk, id_customer_ft)
+	VALUES (?, ?, ?, ?, ?, ?, ?);
 	
 INSERT INTO public."Provider"(
-	id_provider, name_provider, mail, phone)
-	VALUES (?, ?, ?, ?);
+	id_provider, name_provider, mail, phone, address)
+	VALUES (?, ?, ?, ?, ?);
 	
 INSERT INTO public."Product"(
-	id_product, name_product, manufacturer, counter, price)
-	VALUES (?, ?, ?, ?, ?);
+	id_product, name_product, size, material, length, price)
+	VALUES (?, ?, ?, ?, ?, ?);
 	
 INSERT INTO public."Branch"(
 	id_branch, name_branch, city_branch)

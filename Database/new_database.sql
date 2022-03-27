@@ -41,7 +41,7 @@ CREATE TABLE public."Agent"(
 );
 -- ddl-end --
 
--- TODO: обновить вид таблицы, добавить по тз
+-- TODO: обновить вид таблицы, добавить по тз (готово)
 -- object: public.product | type: TABLE --
 CREATE TABLE public.product(
 	id_product bigint,
