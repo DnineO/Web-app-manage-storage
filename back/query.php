@@ -21,4 +21,10 @@
     function get_admin($surname){
         return pg_fetch_all(query("select * from \"Agent\" where '$surname' = \"surname\""));
     }
+
+    function push_(){
+
+    }
+
+
 ?>

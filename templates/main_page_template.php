@@ -2,10 +2,9 @@
 <div class="dropdown">
 <!--    <h1> Main page</h1>-->
     <tr>
-        <th><input type="button" class="button" value="Оформление товара/услуги"></th>
+        <th><input type="button" class="button" value="Оформление товара/услуги" onclick=""></th>
         <th><input type="button" class="button" value="Отчет ИП"></th>
-        <th><input type="button" class="button" value="Прием"></th>
-        <th><input type="button" class="button" value="Отгрузка"></th>
+        <th><input type="button" class="button" value="Прием/Отгрузка"></th>
         <th><input type="button" class="button" value="Резервирование"></th>
         <th><input type="button" class="button" value="Инвентаризация"></th>
         <th><input type="button" class="button" value="Счет ИП"></th>

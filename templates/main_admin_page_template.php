@@ -11,5 +11,5 @@ $surname = $_SESSION['name'];
 
 
 <h3>
-    Main admin page - <?=$surname?>
+<!--    Main admin page - --><?//=$surname?>
 </h3>

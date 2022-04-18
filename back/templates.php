@@ -43,8 +43,8 @@ function render_template_main_page(){
 }
 
 // Рендер страницы юзера
-function render_template_user_page(){
-    return template(dirname(__DIR__,1).'/templates/user_page_template.php',[]);
+function render_template_user_page($args){
+    return template(dirname(__DIR__,1).'/templates/user_page_template.php',$args);
 }
 
 // Рендер главной страницы админа
@@ -52,6 +52,6 @@ function render_template_main_admin_page(){
     return template(dirname(__DIR__,1).'/templates/main_admin_page_template.php',[]);
 }
 
-function render_template_admin_page($surname){
-    return template(dirname(__DIR__,1).'/templates/admin_page_template.php',$surname);
+function render_template_admin_page($args){
+    return template(dirname(__DIR__,1).'/templates/admin_page_template.php',$args);
 }

@@ -20,7 +20,7 @@ if (isset($_POST['name']) && !empty($_POST['name']) )
     $result = pg_fetch_all($query_result, PGSQL_ASSOC);
 
     $role = get_role($login);
-    echo(var_dump($role));
+//    echo(var_dump($role));
 
     var_dump($result);
     echo(empty($result));

@@ -8,12 +8,12 @@
         <tbody>
         <th>
             <tr><td><span class="lead">Фамилия </span>
-                    <font size="4" color="#808080">(Иванов)</font></td>
+                    <font size="4" color="#808080"></font></td>
                 <td><input class="form-check-input" name="text" value="<?=$surname;?>" disabled style="width:90%;"></td>
             </tr>
 
             <tr><td><span class="lead">Имя </span>
-                    <font size="4" color="#808080">(Иван)</font></td>
+                    <font size="4" color="#808080"></font></td>
                 <td><input class="form-check-input" name="text" value="<?=$firstname;?>" disabled style="width:90%;"></td>
             </tr>
 
