@@ -2,7 +2,7 @@
 class DB {
     var $login = "postgres"; // Логин
     var $pass = "1"; // Пароль
-    var $name = "new_database"; // Название БД
+    var $name = "postgres"; // Название БД
     var $host = "localhost"; // Адрес хоста
     var $port = "5433"; // Порт для подключения
 
