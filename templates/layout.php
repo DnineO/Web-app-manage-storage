@@ -41,11 +41,12 @@ else{
 
 
 <?=$navigation?>
+
 <?=$content?>
 
 
 <script src="/js/print.js"></script>
-<!--<script src="../js/bootstrap.bundle.js"></script>-->
+<script src="../js/bootstrap.bundle.js"></script>
 
 </body>
 </html>
