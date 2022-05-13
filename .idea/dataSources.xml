@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="PostgreSQL - new_database@localhost" uuid="e1e3003d-5439-42dd-8619-5303808ff1e3">
+    <data-source source="LOCAL" name="postgres@localhost" uuid="40cb453e-595a-44de-8d65-7de39a418e1d">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
+      <remarks>database-wkr</remarks>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5433/new_database</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:5433/postgres</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
