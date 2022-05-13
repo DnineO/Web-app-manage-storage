@@ -1,3 +1,14 @@
+<?php
+
+$user = get_admin($_SESSION['name']);
+$surname = $user[0]['surname'];
+$firstname = $user[0]['firstname'];
+$date_birth = $user[0]['date_birthday'];
+$role_personal = $user[0]['role_personal'];
+
+?>
+
+
 <h3>
     Admin profile page - <?=$surname?>
 </h3>
