@@ -10,6 +10,8 @@ require_once dirname(__DIR__,1)."/back/templates.php";
 if (isset($_SESSION['name'])){
     $surname = $_SESSION['name']; //name user
     $role = get_role($surname);
+//    var_dump(get_role($surname));
+
     if ($role[0]["role_personal"] == "admin"){
         $navigation = template("D:/XAMMP/htdocs/templates/navigation_admin_template.php",['name'=>$_SESSION['name']]);
     }
