@@ -18,6 +18,7 @@
         return pg_fetch_all(query("select \"role_personal\" from \"Agent\" where '$surname' = \"surname\""));
     }
 
+    // Запрос с возвратом массива пользователя из бд
     function get_admin($surname){
         return pg_fetch_all(query("select * from \"Agent\" where '$surname' = \"surname\""));
     }
@@ -26,5 +27,19 @@
 
     }
 
+    // Запрос с возвратом всех товаров
+    function get_products(){
+        return pg_fetch_all(query("select * from \"Product\""));
+    }
+
+    // Запрос с возвратом всех документов
+    function get_waybills(){
+        return pg_fetch_all(query("select * from \"Waybill\""));
+    }
+
+    // Запрос с возвратом всех пользователей
+    function get_users(){
+        return pg_fetch_all(query("select * from \"Agent\""));
+    }
 
 ?>

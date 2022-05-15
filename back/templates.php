@@ -5,7 +5,7 @@ function template($file, $args){
 
  // проверяем, существует ли файл
     if ( !file_exists( $file ) ) {
-        //echo $file;
+//        echo $file;
         return 'Файла не существует';
     }
 
@@ -52,6 +52,29 @@ function render_template_main_admin_page(){
     return template(dirname(__DIR__,1).'/templates/main_admin_page_template.php',[]);
 }
 
+// Рендер личной страницы админа
 function render_template_admin_page($args){
     return template(dirname(__DIR__,1).'/templates/admin_page_template.php',$args);
+}
+
+
+// Таблица товаров
+function render_template_row_product($args){
+    return template(dirname(__DIR__,1).'/templates/row_table_product_template.php',$args);
+}
+
+function render_template_table_product($args){
+    $args = ["table" => $args];
+    return template(dirname(__DIR__,1).'/templates/table_product_template.php',$args);
+}
+
+
+// Таблица документов
+function render_template_row_waybill($args){
+    return template(dirname(__DIR__,1).'/templates/row_table_waybill_template.php_template.php',$args);
+}
+
+function render_template_table_waybill($args){
+    $args = ["table" => $args];
+    return template(dirname(__DIR__,1).'/templates/table_waybill_template.php',$args);
 }
