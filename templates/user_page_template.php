@@ -39,3 +39,32 @@ $role_personal = $user[0]['role_personal'];
         </tbody>
     </table>
 </div>
+
+
+<div class="btn-toolbar" >
+    <p>
+        <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+            Показать таблицу документов
+        </button>
+    </p>
+
+    <div class="collapse" id="collapse1">
+        <div class="card card-body">
+            render table documents.
+
+            <?php
+            //TODO: таблицы (есть 1)
+            $table = "";
+            $position = get_products();
+
+            foreach ($position as $product){
+                $table = $table.render_template_row_product($product);
+            }
+
+            $table = render_template_table_product($table);
+            showPageIfLogged("Table product", $table);
+            ?>
+
+        </div>
+    </div>
+</div>
