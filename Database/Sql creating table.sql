@@ -79,10 +79,11 @@ CREATE TABLE public."Product"(
 
 	id_product serial NOT NULL,
 	name_product varchar, --наименование
-	size varchar, --диаметр/периметр
-	material varchar, --материал
-	--counter int, --количество
-	length int, --длина
+	form varchar, --форма изделия
+-- 	size varchar, --диаметр/периметр
+-- 	material varchar, --материал
+-- 	counter int, --количество
+-- 	length int, --длина
 	price bigint, --цена за шт
 	CONSTRAINT id_product PRIMARY KEY (id_product),
 	--CONSTRAINT "count" CHECK (counter > '0')
