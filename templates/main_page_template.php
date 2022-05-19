@@ -1,7 +1,7 @@
 
 <div class="dropdown">
 <!--    <tr>-->
-        <input type="button" class="btn btn-secondary" value="Оформление товара/услуги" onclick="">
+    <button class="btn btn-secondary" onclick="location.href = 'order_product_page.php'"> Оформление товара/услуги  </button>
         <input type="button" class="btn btn-secondary" value="Отчет ИП">
         <input type="button" class="btn btn-secondary" value="Прием/Отгрузка">
         <input type="button" class="btn btn-secondary" value="Резервирование">
@@ -12,8 +12,9 @@
 
 <br>
 <br>
-<div>
-    <div class="btn-toolbar" >
+
+<div class="btn-toolbar">
+    <div>
         <p>
             <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
                 Показать таблицу товаров
@@ -25,7 +26,7 @@
                 render table product.
 
                 <?php
-                //TODO: таблицы (есть 1)
+                //TODO: таблицы (есть 2)
                 $table = "";
                 $position = get_products();
 
@@ -41,10 +42,8 @@
         </div>
     </div>
 
-    <!--    список товаров мб ещё что то (додумать)-->
-    <br>
 
-    <div class="btn-toolbar" >
+    <div>
         <p>
             <a class="btn btn-secondary" data-bs-toggle="collapse" href="#collapse2" role="button" aria-expanded="false" aria-controls="collapse2">
                 Показать таблицу номенклатуры
