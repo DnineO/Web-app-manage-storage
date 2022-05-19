@@ -1,4 +1,4 @@
-<div id="users-block" class="block-with-info hide">
+<div id="product-block" class="block-with-info hide" style="width: 100%">
     <h3>Список изделий</h3>
     <div class="menu-admin__table">
         </form>
@@ -16,4 +16,4 @@
         </table>
     </div>
 </div>
-<div class="text-center">
+
