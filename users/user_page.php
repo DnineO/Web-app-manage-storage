@@ -9,7 +9,7 @@ require_once dirname(__DIR__, 1) . "/back/query.php";
 require_once dirname(__DIR__, 1) . "/back/templates.php";
 
 
-//TODO: сделать рендер страницы пользователя(готово), сверстать страницу
+//TODO: сделать рендер страницы пользователя(готово), сверстать страницу(есть)
 if (isset($_SESSION['name'])) {
 
     $user = get_admin($_SESSION['name']);
@@ -18,4 +18,3 @@ if (isset($_SESSION['name'])) {
 }
 ?>
 
-<!--работает-->
