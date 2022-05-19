@@ -71,10 +71,25 @@ function render_template_table_product($args){
 
 // Таблица документов
 function render_template_row_waybill($args){
-    return template(dirname(__DIR__,1).'/templates/row_table_waybill_template.php_template.php',$args);
+    return template(dirname(__DIR__,1).'/templates/row_table_waybill_template.php',$args);
 }
 
 function render_template_table_waybill($args){
     $args = ["table" => $args];
     return template(dirname(__DIR__,1).'/templates/table_waybill_template.php',$args);
+}
+
+// Рендер страницы оформления товара/услуги
+function render_template_order_product_page(){
+    return template(dirname(__DIR__,1).'/templates/form_order_product_template.php',[]);
+}
+
+
+// Рендер форм товаров
+function render_template_adapter_circle(){
+    return template(dirname(__DIR__,1).'/templates/products/adapter_circle_template.php',[]);
+}
+
+function render_template_adapter_cube(){
+    return template(dirname(__DIR__,1).'/templates/products/adapter_cube_template.php',[]);
 }

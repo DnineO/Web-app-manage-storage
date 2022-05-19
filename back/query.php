@@ -23,6 +23,11 @@
         return pg_fetch_all(query("select * from \"Agent\" where '$surname' = \"surname\""));
     }
 
+    // Запрос с возвратом пароля пользователя
+    function get_pass($id){
+        return pg_fetch_all(query("select \"pass\" from \"Agent\" where '$id' = \"id_agent\" "))[0]['pass'];
+    }
+
     function push_(){
 
     }
@@ -37,9 +42,23 @@
         return pg_fetch_all(query("select * from \"Waybill\""));
     }
 
+    function get_waybills_user($args){
+        $id_agent = get_admin($args)[0]['id_agent'];
+    return pg_fetch_all(query("select * from \"Waybill\" where \"id_agent_fk\" = '$id_agent'"));
+}
+
     // Запрос с возвратом всех пользователей
     function get_users(){
         return pg_fetch_all(query("select * from \"Agent\""));
     }
+
+    // Смена пароля
+    function change_pass($id,$new){
+        pg_fetch_all(query("UPDATE public.\"Agent\"
+	    SET \"pass\" = '$new'
+	    WHERE id_agent= '$id';"));
+    }
+
+
 
 ?>
