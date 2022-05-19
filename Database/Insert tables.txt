@@ -1,10 +1,14 @@
-INSERT INTO public."Waybill"(
-	id_waybill, operation, date_of_waybill, note, id_agent_fk, id_provider_fk, id_customer_ft)
-	VALUES (?, ?, ?, ?, ?, ?, ?);
-	
 INSERT INTO public."Provider"(
 	id_provider, name_provider, mail, phone, address)
-	VALUES (?, ?, ?, ?, ?);
+	VALUES (1, 'Машзавод', 'mail@mail.ru', '89141234567', 'г.Чита,...');
+
+
+INSERT INTO public."Waybill"(
+	id_waybill, operation, date_of_waybill, note, id_agent_fk, id_provider_fk, id_customer_ft)
+	VALUES  (1, 'Комм. предложение', '10.05.2022', 'Адаптер круг., воздуховод круг., тройник круг.', '1', '1', '1')
+	        --(?, ?, ?, ?, ?, ?, ?),
+	        ;
+
 	
 INSERT INTO public."Product"(
 	id_product, name_product, form, price)
