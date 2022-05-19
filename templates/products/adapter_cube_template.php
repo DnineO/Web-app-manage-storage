@@ -42,6 +42,9 @@
                             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                         </div>
                     </td>
+                    <td>
+                        <button type="submit" class="btn btn-secondary">Продолжить</button>
+                    </td>
                 </tr>
             </th>
         </table>
