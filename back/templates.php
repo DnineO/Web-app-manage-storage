@@ -37,7 +37,7 @@ function render_template_index_form(){
     return template(dirname(__DIR__,1).'/templates/index_form_template.php',[]);
 }
 
-// Рендер главной страницы TODO: наполнение(к примеру список, товаров, документов)
+// Рендер главной страницы
 function render_template_main_page(){
     return template(dirname(__DIR__,1).'/templates/main_page_template.php',[]);
 }
@@ -63,6 +63,7 @@ function render_template_row_product($args){
     return template(dirname(__DIR__,1).'/templates/row_table_product_template.php',$args);
 }
 
+
 function render_template_table_product($args){
     $args = ["table" => $args];
     return template(dirname(__DIR__,1).'/templates/table_product_template.php',$args);
@@ -79,10 +80,38 @@ function render_template_table_waybill($args){
     return template(dirname(__DIR__,1).'/templates/table_waybill_template.php',$args);
 }
 
-// Рендер страницы оформления товара/услуги
+// Рендер страницы оформления товара
 function render_template_order_product_page(){
     return template(dirname(__DIR__,1).'/templates/form_order_product_template.php',[]);
 }
+
+function render_template_select_product($item){
+    return template(dirname(__DIR__,1).'/templates/select_product_template.php',$item);
+}
+
+// Рендер индивидуальной страницы товара
+function render_template_product_page(){
+    return template(dirname(__DIR__,1).'/templates/product_page_template.php',[]);
+}
+
+// Рендер индивидуальной страницы документа
+function render_template_document_page(){
+    return template(dirname(__DIR__,1).'/templates/document_page_template.php',[]);
+}
+
+// Рендер страницы приема/отгрузки
+function render_template_reception_page(){
+    return template(dirname(__DIR__,1).'/templates/reception_page_template.php',[]);
+}
+
+function render_template_reception_form(){
+    return template(dirname(__DIR__,1).'/templates/form_reception_template.php',[]);
+}
+
+function render_template_select_provider($args){
+    return template(dirname(__DIR__, 1) . '/templates/select_provider_template.php',$args);
+}
+
 
 
 // Рендер форм товаров
