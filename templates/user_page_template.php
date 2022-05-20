@@ -81,19 +81,17 @@ if ((isset($_POST["old"]) or isset($_POST["new"]))){
 
     <div class="collapse" id="collapse1">
         <div class="card card-body">
-            render table documents.
-
             <?php
-            //TODO: таблицы (есть) по пользователю
             $table = "";
-            $position = get_users();
+//            echo($surname);
+            $position = get_waybills_user($surname);
 
-            foreach ($position as $user){
-                $table = $table.render_template_row_users($user);
+            foreach ($position as $product){
+                $table = $table.render_template_row_waybill($product);
             }
 
-            $table = render_template_table_users($table);
-            showPageIfLogged("Table users", $table);
+            $table = render_template_table_waybill($table);
+            showPageIfLogged("Table product", $table);
             ?>
 
         </div>
