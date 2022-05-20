@@ -42,14 +42,24 @@
         return pg_fetch_all(query("select * from \"Waybill\""));
     }
 
+    // Запрос с возвратом документов пользователя
     function get_waybills_user($args){
         $id_agent = get_admin($args)[0]['id_agent'];
     return pg_fetch_all(query("select * from \"Waybill\" where \"id_agent_fk\" = '$id_agent'"));
 }
 
+    function get_waybill($args){
+        return pg_fetch_all(query("select * from \"Waybill\" where id_waybill = '$args'"));
+    }
+
     // Запрос с возвратом всех пользователей
     function get_users(){
         return pg_fetch_all(query("select * from \"Agent\""));
+    }
+
+    // Запрос постащиков
+    function get_providers(){
+        return pg_fetch_all(query("select * from \"Provider\""));
     }
 
     // Смена пароля
@@ -59,6 +69,20 @@
 	    WHERE id_agent= '$id';"));
     }
 
+    // Возврат последнего значения id продукта
+    function get_max_id_product(){
+        return pg_fetch_all(query("SELECT id_product FROM \"Product\" ORDER BY id_product DESC LIMIT 1;"));
+    }
+
+    // Возврат последнего значения id агента
+    function get_max_id_agent(){
+        return pg_fetch_all(query("SELECT id_agent FROM \"Agent\" ORDER BY id_agent DESC LIMIT 1;"));
+}
+
+    // Возврат последнего значения id документа
+    function get_max_id_document(){
+        return pg_fetch_all(query("SELECT id_waybill FROM \"Waybill\" ORDER BY id_waybill DESC LIMIT 1;"));
+    }
 
 
 ?>
