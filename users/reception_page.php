@@ -13,11 +13,15 @@ showPageIfLogged("Reception-shipping page", render_template_reception_page());
 //var_dump($_POST);
 
 if (isset($_POST['select1'])){
-    if ($_POST['select1'][0] == "Приход"){
-    render_page("Reception", render_template_reception_form());
-    }else{
 
+    switch ($_POST['select1'][0]) {
+        case "Приход":
+            showPageIfLogged("Reception", render_template_reception_form());
+            break;
+        case "Отгрузка":
+            showPageIfLogged("Shipping", render_template_shipping_form());
+            break;
     }
 }
-
+//TODO:переход после операции на оформление документа
 ?>
