@@ -1,29 +1,17 @@
-<!-- от кого, что , сколько, документ -->
+
 
 <form action="" method="post">
     <div style="width: 40%">
-        <label class="input-group-text mb-auto disabled" for="select0">Приход</label>
+        <label class="input-group-text mb-auto" for="select0">Отгрузка</label>
     </div>
     <br>
     <div style="width: 40%">
         <div class="input-group mb-auto">
-            <label class="input-group-text" for="select1">От кого</label>
-            <select name="select1[]" class="form-select" id="select1">
-                <option selected disabled>Выберите</option>
-                <?php
-                $select = '';
-                $position = get_providers();
-//                var_dump($position);
-                foreach ($position as $provider){
-                    $select = $select.render_template_select_provider($provider);
-                }
-
-                render_page("Select providers",$select );
-                ?>
-            </select>
+            <label class="input-group-text" for="select1">Для кого</label>
+            <input name="count" type="text" class="form-control" placeholder="введите фамилию" aria-label="count" aria-describedby="addon-wrapping">
         </div>
     </div>
-<br>
+    <br>
     <div style="width: 40%">
         <div class="input-group mb-auto">
             <label class="input-group-text" for="select2">Наименование</label>
