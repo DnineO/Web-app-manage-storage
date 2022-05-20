@@ -57,8 +57,8 @@ if ((isset($_POST["old"]) or isset($_POST["new"]))){
                         <div class="input-group">
                             <span class="input-group-text">Старый пароль</span>
                             <font size="4" color="#808080"></font>
-                            <input type="text" name="old[]" id="old" aria-label="old pass" class="form-control" value="">
-                            <input type="text" name="new[]" id="new" aria-label="new pass" class="form-control" value="">
+                            <input type="password" name="old[]" id="old" aria-label="old pass" class="form-control" value="">
+                            <input type="password" name="new[]" id="new" aria-label="new pass" class="form-control" value="">
                             <span class="input-group-text">Новый пароль</span>
                         </div>
                     </td>
