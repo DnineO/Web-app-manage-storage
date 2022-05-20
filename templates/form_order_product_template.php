@@ -8,23 +8,28 @@
                     <td>
                         <div class="input-group mb-3" style="width: 90%">
                             <label class="input-group-text" for="select1">Наименование</label>
-                            <select name="select1[]" class="form-select" id="select2">
+                            <select name="select1[]" class="form-select" id="select1">
                                 <option selected disabled>Выберите</option>
-                                <option value="Адаптер">Адаптер</option>
-                                <option value="Воздуховод">Воздуховод</option>
-                                <option value="Врезка">Врезка</option>
-                                <option value="Отвод">Отвод</option>
-                                <option value="Переход">Переход</option>
-                                <option value="Заглушка">Заглушка</option>
-                                <option value="Тройник">Тройник</option>
-                                <option value="Крестовина">Крестовина</option>
-                                <option value="Утка">Утка</option>
-                                <option value="Фланец">Фланец</option>
-                                <option value="Шибера">Шибера</option>
-                                <option value="Шумоглушитель">Шумоглушитель</option>
-                                <option value="Ниппель">Ниппель</option>
-                                <option value="Жироуловитель">Жироуловитель</option>
-                                <option value="Фартук">Фартук</option>
+                                <?php
+                                $select = '';
+                                $position = get_products();
+                                $i = 0;
+                                $select = $select.render_template_select_product($position[$i]);
+                                $perem = $position[$i]['name_product'];
+                                $max = get_max_id_product()[0]['id_product'] - 1;
+
+                                foreach ($position as $item){
+                                    $i = $i + 1;
+                                    if ($i <= $max){
+                                        if ($perem != $item['name_product']){
+                                            $select = $select.render_template_select_product($item);
+                                            $perem = $position[$i]['name_product'];
+                                        }
+                                    }
+                                }
+
+                                render_page("Select product",$select);
+                                ?>
                                 <!--TODO:дополнить-->
                             </select>
                         </div>
@@ -33,8 +38,8 @@
                 <tr>
                     <td>
                         <div class="input-group mb-3" style="width: 90%">
-                            <label class="input-group-text" for="inputGroupSelect02">Форма</label>
-                            <select name="select2[]" class="form-select" id="inputGroupSelect02">
+                            <label class="input-group-text" for="select2">Форма</label>
+                            <select name="select2[]" class="form-select" id="select2">
                                 <option selected disabled>Выберите</option>
                                 <option value="круглый">Круглый</option>
                                 <option value="прямоугольный">Прямоугольный</option>
