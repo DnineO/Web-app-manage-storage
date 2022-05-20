@@ -47,7 +47,7 @@ else{
 <?=$content?>
 
 
-<script src="/js/print.js"></script>
+<script src="../js/print.js"></script>
 <script src="../js/bootstrap.bundle.js"></script>
 
 </body>
