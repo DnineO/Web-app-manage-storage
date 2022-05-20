@@ -82,7 +82,7 @@ CREATE TABLE public."Product"(
 	form varchar, --форма изделия
 -- 	size varchar, --диаметр/периметр
 -- 	material varchar, --материал
--- 	counter int, --количество
+	counter int, --количество
 -- 	length int, --длина
 	price bigint, --цена за шт
 	CONSTRAINT id_product PRIMARY KEY (id_product),
