@@ -4,14 +4,11 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
+
 require_once dirname(__DIR__, 1)."/back/functions.php";
 require_once dirname(__DIR__, 1) . "/back/query.php";
 require_once dirname(__DIR__, 1) . "/back/templates.php";
 
+showPageIfLogged("Product-page", render_template_document_page());
 
-if (isset($_SESSION['name'])) {
-    $user = get_admin($_SESSION['name']);
-    showPageIfLogged('User page',render_template_user_page($user[0]));
-}
 ?>
-
