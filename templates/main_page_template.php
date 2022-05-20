@@ -2,7 +2,7 @@
     <button class="btn btn-secondary" onclick="location.href = 'order_product_page.php'"> Оформление товара/услуги  </button>
     <button class="btn btn-secondary" onclick="location.href= 'reception_page.php'"> Приход/Отгрузка </button>
     <input type="button" class="btn btn-secondary" value="Резервирование">
-    <input type="button" class="btn btn-secondary" value="Инвентаризация">
+    <button class="btn btn-secondary" onclick="location.href='inventory_page.php'"> Инвентаризация </button>
 <!--    <input type="button" class="btn btn-secondary" value="Счет ИП">-->
     <button class="btn btn-secondary" onclick="location.href='/templates/otchet_teplate.html'">Распечатать счет</button>
 
