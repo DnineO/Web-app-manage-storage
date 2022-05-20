@@ -57,7 +57,11 @@ PHPExcel библиотека
 есть такая программа в ней есть недостатки, которые попросили устранить, поэтому было поставлено тех задание, её видоизменить чтобы все работало так как они хотели
 
 Литература
-bootstrap-4.ru/docs/5.1
 https://www.azoft.ru/services/web-development/
 https://ru.wikipedia.org/wiki/Веб-приложение
 https://ru.wikipedia.org/wiki/Фронтенд_и_бэкенд
+
+bootstrap-4.ru/docs/5.1
+https://metanit.com/php/tutorial/3.3.php
+http://htmlbook.ru/html/button/type
+https://www.php.net/manual/ru/function.explode.php - разбор строки mysql
