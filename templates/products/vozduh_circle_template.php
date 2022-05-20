@@ -4,7 +4,7 @@
             <th>
                 <tr>
                     <td>
-                        <img src="../../images/vrezkacube.gif">
+                        <img src="../../images/vozduhcircle.jpg">
                     </td>
                     <td>
                         <div class="input-group input-group-sm mb-3">
