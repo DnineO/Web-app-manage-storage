@@ -2,10 +2,6 @@
 
 <form action="" method="post">
     <div style="width: 40%">
-        <label class="input-group-text mb-auto disabled" for="select0">Приход</label>
-    </div>
-    <br>
-    <div style="width: 40%">
         <div class="input-group mb-auto">
             <label class="input-group-text" for="select1">От кого</label>
             <select name="select1[]" class="form-select" id="select1">
@@ -28,7 +24,7 @@
         <div class="input-group mb-auto">
             <label class="input-group-text" for="select2">Наименование</label>
             <select name="select2[]" class="form-select" id="select2">
-                <option>Выберите</option>
+                <option selected disabled>Выберите</option>
                 <?php
                 $select = '';
                 $position = get_products();
@@ -54,29 +50,12 @@
     </div>
     <br>
     <div style="width: 40%">
-        <div class="input-group mb-auto">
-            <label class="input-group-text" for="select3">Форма</label>
-            <select name="select3[]" class="form-select" id="select3">
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="select2">Форма</label>
+            <select name="select2[]" class="form-select" id="select2">
                 <option selected disabled>Выберите</option>
                 <option value="круглый">Круглый</option>
                 <option value="прямоугольный">Прямоугольный</option>
-            </select>
-        </div>
-    </div>
-    <br>
-    <div style="width: 40%">
-        <div class="input-group mb-auto">
-            <label class="input-group-text" for="select4">Количество</label>
-            <input name="count" type="text" class="form-control" placeholder="введите количество" aria-label="count" aria-describedby="addon-wrapping">
-        </div>
-    </div>
-    <br>
-    <div class="btn-toolbar">
-        <div>
-            <p>
-                <button class="btn btn-secondary" type="submit">Оформить</button>
-            </p>
-        </div>
     </div>
 
 </form>
