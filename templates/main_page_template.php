@@ -1,17 +1,15 @@
-
 <div class="dropdown">
-<!--    <tr>-->
     <button class="btn btn-secondary" onclick="location.href = 'order_product_page.php'"> Оформление товара/услуги  </button>
-        <input type="button" class="btn btn-secondary" value="Отчет ИП">
-        <input type="button" class="btn btn-secondary" value="Прием/Отгрузка">
-        <input type="button" class="btn btn-secondary" value="Резервирование">
-        <input type="button" class="btn btn-secondary" value="Инвентаризация">
-        <input type="button" class="btn btn-secondary" value="Счет ИП">
-<!--    </tr>-->
+    <button class="btn btn-secondary" onclick="location.href= 'reception_page.php'"> Приход/Отгрузка </button>
+    <input type="button" class="btn btn-secondary" value="Резервирование">
+    <input type="button" class="btn btn-secondary" value="Инвентаризация">
+<!--    <input type="button" class="btn btn-secondary" value="Счет ИП">-->
+    <button class="btn btn-secondary" onclick="location.href='/templates/otchet_teplate.html'">Распечатать счет</button>
+
 </div>
 
 <br>
-<br>
+
 
 <div class="btn-toolbar">
     <div>
@@ -23,10 +21,9 @@
 
         <div class="collapse" id="collapse1">
             <div class="card card-body">
-                render table product.
+<!--                render table product.-->
 
                 <?php
-                //TODO: таблицы (есть 2)
                 $table = "";
                 $position = get_products();
 
@@ -40,9 +37,10 @@
 
             </div>
         </div>
+        <br>
     </div>
-
-
+</div>
+<div class="btn-toolbar">
     <div>
         <p>
             <a class="btn btn-secondary" data-bs-toggle="collapse" href="#collapse2" role="button" aria-expanded="false" aria-controls="collapse2">
@@ -52,7 +50,7 @@
 
         <div class="collapse" id="collapse2">
             <div class="card card-body">
-                render table waybill.
+<!--                render table waybill.-->
                 <?php
                 $table = "";
                 $position = get_waybills();

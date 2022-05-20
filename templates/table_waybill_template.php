@@ -6,10 +6,10 @@
             <tbody>
             <tr>
                 <th>№</th>
-                <th>Тип операции</th>
-                <th>дата</th>
-                <th>пояснение </th>
-                <th>страница</th>
+                <th>Тип</th>
+                <th style="width: 15%">Дата</th>
+                <th>Пояснение</th>
+                <th></th>
             </tr>
             <?=$table;?>
             </tbody>

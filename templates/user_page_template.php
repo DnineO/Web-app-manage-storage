@@ -27,7 +27,7 @@ if ((isset($_POST["old"]) or isset($_POST["new"]))){
     <h1> User profile page <?=$surname?></h1>
 </div>
 
-<!--TODO: передачу данных, функционально можно разместить здесь кнопки, подумать-->
+
 
 <div class="formData">
     <table class="table">
@@ -51,15 +51,14 @@ if ((isset($_POST["old"]) or isset($_POST["new"]))){
                     <font size="4" color="#808080"></font></td>
                 <td><input class="form-check-input" name="text" value="<?=$role_personal?>" disabled style="width:90%;"></td>
             </tr>
-<!--            TODO: смена пароля -->
             <form name="change" action="" method="post">
             <tr>
                 <td>
                     <div class="input-group">
                         <span class="input-group-text">Старый пароль</span>
                             <font size="4" color="#808080"></font>
-                        <input type="text" name="old[]" id="old" aria-label="old pass" class="form-control" value="">
-                        <input type="text" name="new[]" id="new" aria-label="new pass" class="form-control" value="">
+                        <input type="password" name="old[]" id="old" aria-label="old pass" class="form-control" value="">
+                        <input type="password" name="new[]" id="new" aria-label="new pass" class="form-control" value="">
                         <span class="input-group-text">Новый пароль</span>
                     </div>
                 </td>
@@ -87,15 +86,14 @@ if ((isset($_POST["old"]) or isset($_POST["new"]))){
             <?php
             //TODO: таблицы (есть) по пользователю
             $table = "";
-            echo($surname);
-            $position = get_waybills_user($surname);
+            $position = get_users();
 
-            foreach ($position as $product){
-                $table = $table.render_template_row_waybill($product);
+            foreach ($position as $user){
+                $table = $table.render_template_row_users($user);
             }
 
-            $table = render_template_table_waybill($table);
-            showPageIfLogged("Table product", $table);
+            $table = render_template_table_users($table);
+            showPageIfLogged("Table users", $table);
             ?>
 
         </div>

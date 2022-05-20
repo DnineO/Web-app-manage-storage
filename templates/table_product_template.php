@@ -8,10 +8,12 @@
                 <th>№</th>
                 <th>Наименование</th>
                 <th>форма</th>
+                <th>кол-во</th>
                 <th>цена </th>
-                <th>страница</th>
+                <th></th>
             </tr>
             <?=$table;?>
+
             </tbody>
         </table>
     </div>
