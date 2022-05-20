@@ -108,8 +108,27 @@ function render_template_reception_form(){
     return template(dirname(__DIR__,1).'/templates/form_reception_template.php',[]);
 }
 
+function render_template_shipping_form(){
+    return template(dirname(__DIR__,1).'/templates/form_shipping_template.php',[]);
+}
+
 function render_template_select_provider($args){
     return template(dirname(__DIR__, 1) . '/templates/select_provider_template.php',$args);
+}
+
+// Рендер страницы инвентаризации
+function render_template_inventory_page(){
+    return template(dirname(__DIR__,1).'/templates/inventory_page_template.php',[]);
+}
+
+function render_template_row_inventory_product($args){
+    return template(dirname(__DIR__,1).'/templates/row_product_inventory_template.php',$args);
+}
+
+
+function render_template_table_inventory_product($args){
+    $args = ["table" => $args];
+    return template(dirname(__DIR__,1).'/templates/table_product_inventory_template.php',$args);
 }
 
 
@@ -121,4 +140,20 @@ function render_template_adapter_circle(){
 
 function render_template_adapter_cube(){
     return template(dirname(__DIR__,1).'/templates/products/adapter_cube_template.php',[]);
+}
+
+function render_template_vozduhovod_circle(){
+    return template(dirname(__DIR__,1).'/templates/products/vozduh_circle_template.php',[]);
+}
+
+function render_template_vozduhovod_cube(){
+    return template(dirname(__DIR__,1).'/templates/products/vozduh_cube_template.php',[]);
+}
+
+function render_template_vrezka_circle(){
+    return template(dirname(__DIR__,1).'/templates/products/vrezka_circle_template.php',[]);
+}
+
+function render_template_vrezka_cube(){
+    return template(dirname(__DIR__,1).'/templates/products/vrezka_cube_template.php',[]);
 }
