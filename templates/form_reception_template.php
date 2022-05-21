@@ -2,6 +2,10 @@
 
 <form action="" method="post">
     <div style="width: 40%">
+        <label class="input-group-text mb-auto disabled" for="select0">Приход</label>
+    </div>
+    <br>
+    <div style="width: 40%">
         <div class="input-group mb-auto">
             <label class="input-group-text" for="select1">От кого</label>
             <select name="select1[]" class="form-select" id="select1">
@@ -56,6 +60,22 @@
                 <option selected disabled>Выберите</option>
                 <option value="круглый">Круглый</option>
                 <option value="прямоугольный">Прямоугольный</option>
+            </select>
+        </div>
     </div>
+    <br>
+    <div style="width: 40%">
+        <div class="input-group mb-auto">
+            <label class="input-group-text" for="select4">Количество</label>
+            <input name="count" type="text" class="form-control" placeholder="введите количество" aria-label="count" aria-describedby="addon-wrapping">
+        </div>
+    </div>
+    <br>
+    <div class="btn-toolbar">
+        <div>
+            <p>
+                <button class="btn btn-secondary" type="submit">Оформить</button>
+            </p>
+        </div>
 
 </form>
