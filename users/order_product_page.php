@@ -27,6 +27,7 @@ if (isset($_POST["select2"]) and isset($_POST["select1"])) {
                     showPageIfLogged('Адаптер прямоуг.', render_template_adapter_cube());
                     break;
             }
+            break;
         case "Воздуховод":
             switch ($_POST['select2'][0]){
                 case "круглый":
@@ -36,6 +37,7 @@ if (isset($_POST["select2"]) and isset($_POST["select1"])) {
                     showPageIfLogged('Адаптер прямоуг.', render_template_vozduhovod_cube());
                     break;
             }
+            break;
         case "Врезка":
             switch ($_POST['select2'][0]){
                 case "круглый":
@@ -45,6 +47,7 @@ if (isset($_POST["select2"]) and isset($_POST["select1"])) {
                     showPageIfLogged('Адаптер прямоуг.',render_template_vrezka_cube());
                     break;
             }
+            break;
 
     }
 
