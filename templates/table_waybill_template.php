@@ -1,5 +1,5 @@
 <div id="waybill-block" class="block-with-info hide" style="width: 100%">
-    <h3>Список документов</h3>
+    <h3>Таблица документов</h3>
     <div class="menu-admin__table">
         </form>
         <table id="my-table" class="table">
