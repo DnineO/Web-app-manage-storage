@@ -4,8 +4,8 @@
     <input type="button" class="btn btn-secondary" value="Резервирование">
     <button class="btn btn-secondary" onclick="location.href='inventory_page.php'"> Инвентаризация </button>
 <!--    <input type="button" class="btn btn-secondary" value="Счет ИП">-->
-    <button class="btn btn-secondary" onclick="location.href='/templates/otchet_teplate.html'">Распечатать счет</button>
-
+    <button class="btn btn-secondary" onclick="location.href='/templates/otchet_template.html'">Распечатать счет</button>
+    <button class="btn btn-secondary" onclick="location.href='/templates/schet_IP_template.php'">Счет ИП</button>
 </div>
 
 <br>
