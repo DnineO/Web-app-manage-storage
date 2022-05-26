@@ -18,8 +18,7 @@ if (isset($_SESSION['name'])){
     else{
         $navigation = template("D:/XAMMP/htdocs/templates/navigation_user_template.php",['name'=>$_SESSION['name']]);
     }
-}
-else{
+}else{
     $navigation = template("D:/XAMMP/htdocs/templates/navigation_template.php",[]);
 }
 
