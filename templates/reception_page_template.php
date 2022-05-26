@@ -10,7 +10,7 @@
     <form name="addproduct" action="" method="post">
         <div class="input-group mb-3" style="width: 25%">
             <label class="input-group-text" for="select1">Операция</label>
-            <select name="select1[]" class="form-select" id="select2">
+            <select name="select0[]" class="form-select" id="select2">
                 <option selected disabled>Выберите</option>
                 <option value="Приход">Приход</option>
                 <option value="Отгрузка">Отгрузка</option>

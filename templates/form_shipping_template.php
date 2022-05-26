@@ -1,3 +1,5 @@
+
+
 <form action="" method="post">
     <div style="width: 40%">
         <label class="input-group-text mb-auto" for="select0">Отгрузка</label>
@@ -6,7 +8,7 @@
     <div style="width: 40%">
         <div class="input-group mb-auto">
             <label class="input-group-text" for="select1">Для кого</label>
-            <input name="count" type="text" class="form-control" placeholder="введите фамилию" aria-label="count" aria-describedby="addon-wrapping">
+            <input name="customer" type="text" class="form-control" placeholder="введите фамилию" aria-label="count" aria-describedby="addon-wrapping">
         </div>
     </div>
     <br>
