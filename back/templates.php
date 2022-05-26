@@ -32,6 +32,34 @@ function render_page($title, $content){
     print $page;
 }
 
+
+function template_document($file,$args){
+//echo $file;
+
+    // распаковываем массив
+    if ( is_array( $args ) ){
+        extract( $args );
+    }
+//    echo extract($args);
+
+    // буфферезируем вывод
+    ob_start();
+    include $file;
+    return ob_get_clean();
+}
+
+// Рендер документа
+function render_document($title, $content){
+    // Формируем страницу
+    $file = dirname(__DIR__, 1).'/templates/template.php';
+    //echo $file;
+    $content = ['title' => $title, 'content' => $content];
+    $page = template_document($file,$content);
+//    TODO: подвал
+    print $page;
+}
+
+
 // Рендер титульной страницы
 function render_template_index_form(){
     return template(dirname(__DIR__,1).'/templates/index_form_template.php',[]);
@@ -125,11 +153,21 @@ function render_template_row_inventory_product($args){
     return template(dirname(__DIR__,1).'/templates/row_product_inventory_template.php',$args);
 }
 
-
 function render_template_table_inventory_product($args){
     $args = ["table" => $args];
     return template(dirname(__DIR__,1).'/templates/table_product_inventory_template.php',$args);
 }
+
+// Рендер строки документа Счет ИП
+function render_template_row_document($item){
+    return template(dirname(__DIR__,1).'/templates/row_table_document_template.php',$item);
+}
+
+function render_template_table_document($args){
+    $args = ["table"=>$args];
+    return template(dirname(__DIR__,1).'/templates/table_document_template.php',$args);
+}
+
 
 
 
