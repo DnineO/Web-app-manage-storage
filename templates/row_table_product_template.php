@@ -1,6 +1,7 @@
 <?php
 $link = "product_page.php?id=".$id_product;
 ?>
+
 <form action="" method="post">
     <tr>
         <th><?=$id_product;?></th>

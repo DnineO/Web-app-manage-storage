@@ -48,10 +48,7 @@ if (isset($_POST["select2"]) and isset($_POST["select1"])) {
                     break;
             }
             break;
-
     }
-
-
 }
 
 ?>
