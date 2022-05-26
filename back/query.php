@@ -34,12 +34,16 @@ function push_(){
 
 // Запрос с возвратом всех товаров
 function get_products(){
-    return pg_fetch_all(query("select * from \"Product\""));
+    return pg_fetch_all(query("select * from \"Product\" ORDER BY id_product ASC;"));
+}
+
+function get_product($args){
+    return pg_fetch_all(query("select * from \"Product\" where \"id_product\" = '$args';"));
 }
 
 // Запрос с возвратом всех документов
 function get_waybills(){
-    return pg_fetch_all(query("select * from \"Waybill\""));
+    return pg_fetch_all(query("select * from \"Waybill\" ORDER BY id_waybill ASC;"));
 }
 
 // Запрос с возвратом документов пользователя
@@ -54,12 +58,12 @@ function get_waybill($args){
 
 // Запрос с возвратом всех пользователей
 function get_users(){
-    return pg_fetch_all(query("select * from \"Agent\""));
+    return pg_fetch_all(query("select * from \"Agent\" ORDER BY id_agent ASC;"));
 }
 
 // Запрос постащиков
 function get_providers(){
-    return pg_fetch_all(query("select * from \"Provider\""));
+    return pg_fetch_all(query("select * from \"Provider\" ORDER BY id_provider ASC"));
 }
 
 // Смена пароля
@@ -88,5 +92,12 @@ function get_max_id_document(){
 function get_sum_count_product(){
     return pg_fetch_all(query("SELECT sum(counter) from \"Product\";"));
 }
+
+
+// Обновление значений количества и цены продукта
+function update_product($id,$count,$price){
+    return pg_fetch_all(query("UPDATE public.\"Product\" SET counter = '$count', price = '$price' WHERE id_product = '$id';"));
+}
+
 
 ?>
