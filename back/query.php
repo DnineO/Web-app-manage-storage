@@ -28,8 +28,31 @@ function get_pass($id){
     return pg_fetch_all(query("select \"pass\" from \"Agent\" where '$id' = \"id_agent\" "))[0]['pass'];
 }
 
-function push_(){
+function get_surname($id){
+    return pg_fetch_all(query("select \"surname\" from \"Agent\" where '$id' = \"id_agent\" "))[0]['surname'];
+}
 
+function push_waybill($date,$note,$agent,$customer){
+    $id = get_max_id_document()[0]['id_waybill'] + 1;
+    return pg_fetch_all(query("INSERT INTO public.\"Waybill\"(id_waybill, operation, date_of_waybill, note, id_agent_fk, id_provider_fk, customer)
+	VALUES ('$id', 'Счет', '$date', '$note', '$agent', 1, '$customer');"));
+}
+
+function push_shipping($date,$note,$agent,$customer){
+    $id = get_max_id_document()[0]['id_waybill'] + 1;
+    return pg_fetch_all(query("INSERT INTO public.\"Waybill\"(id_waybill, operation, date_of_waybill, note, id_agent_fk, id_provider_fk, customer)
+	VALUES ('$id', 'Отгрузка', '$date', '$note', '$agent', 1, '$customer');"));
+}
+
+function push_reception($date,$note,$agent,$customer){
+    $id = get_max_id_document()[0]['id_waybill'] + 1;
+    return pg_fetch_all(query("INSERT INTO public.\"Waybill\"(id_waybill, operation, date_of_waybill, note, id_agent_fk, id_provider_fk, customer)
+	VALUES ('$id', 'Приход', '$date', '$note', '$agent', 1, '$customer');"));
+}
+
+function update_waybill($note){
+    $id = get_max_id_document()[0]['id_waybill'];
+    pg_fetch_all(query("UPDATE public.\"Waybill\"	SET note = '$note' WHERE id_waybill = '$id';"));
 }
 
 // Запрос с возвратом всех товаров
@@ -39,6 +62,15 @@ function get_products(){
 
 function get_product($args){
     return pg_fetch_all(query("select * from \"Product\" where \"id_product\" = '$args';"));
+}
+
+function get_product_by_name_form($name,$form){
+    return pg_fetch_all(query("select * from \"Product\" where \"name_product\" = '$name' and \"form\" = '$form';"));
+}
+
+
+function update_product_count($name,$form,$count){
+    pg_fetch_all(query("update \"Product\" set counter = '$count' where name_product = '$name' and form = '$form'"));
 }
 
 // Запрос с возвратом всех документов

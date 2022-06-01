@@ -1,6 +1,6 @@
 <?php
 
-//проверяет авторизован ли пользователь
+// проверяет авторизован ли пользователь
 function showPageIfLogged($title,$content){
     if (session_status() == PHP_SESSION_NONE){
         session_start();
@@ -14,9 +14,14 @@ function showPageIfLogged($title,$content){
     }
 }
 
-//alert
+// alert
 function alert($msg) {
     echo "<script type='text/javascript'>alert('$msg');</script>";
+}
+
+// clear str
+function clear($str){
+    $str = "";
 }
 
 ?>

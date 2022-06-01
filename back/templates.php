@@ -55,7 +55,6 @@ function render_document($title, $content){
     //echo $file;
     $content = ['title' => $title, 'content' => $content];
     $page = template_document($file,$content);
-//    TODO: подвал
     print $page;
 }
 
@@ -160,12 +159,16 @@ function render_template_table_inventory_product($args){
 
 // Рендер строки документа Счет ИП
 function render_template_row_document($item){
-    return template(dirname(__DIR__,1).'/templates/row_table_document_template.php',$item);
+    return template(dirname(__DIR__, 1) . '/templates/row_table_document_schet_template.php',$item);
 }
 
 function render_template_table_document($args){
     $args = ["table"=>$args];
-    return template(dirname(__DIR__,1).'/templates/table_document_template.php',$args);
+    return template(dirname(__DIR__, 1) . '/templates/table_document_schet_template.php',$args);
+}
+
+function render_template_row_nakladnaya($item){
+    return template(dirname(__DIR__, 1) . '/templates/row_table_nakladnaya_template.php',$item);
 }
 
 
