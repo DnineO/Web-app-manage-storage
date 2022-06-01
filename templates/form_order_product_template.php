@@ -7,6 +7,14 @@
                 <tr>
                     <td>
                         <div class="input-group mb-3" style="width: 90%">
+                            <label class="input-group-text" for="select2">Кому</label>
+                            <input class="form-control" name="customer" type="text">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="input-group mb-3" style="width: 90%">
                             <label class="input-group-text" for="select1">Наименование</label>
                             <select name="select1[]" class="form-select" id="select1">
                                 <option selected disabled>Выберите</option>
@@ -51,6 +59,7 @@
                             <div>
                                 <p>
                                     <button class="btn btn-secondary" type="submit">Продолжить</button>
+                                    <input name="operation" type="hidden" value="<?=$flag?>">
                                 </p>
                             </div>
                     </td>

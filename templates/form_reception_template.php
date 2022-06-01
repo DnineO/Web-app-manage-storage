@@ -54,9 +54,9 @@
     </div>
     <br>
     <div style="width: 40%">
-        <div class="input-group mb-3">
+        <div class="input-group mb-auto">
             <label class="input-group-text" for="select2">Форма</label>
-            <select name="select2[]" class="form-select" id="select2">
+            <select name="select3[]" class="form-select" id="select2">
                 <option selected disabled>Выберите</option>
                 <option value="круглый">Круглый</option>
                 <option value="прямоугольный">Прямоугольный</option>
@@ -66,16 +66,23 @@
     <br>
     <div style="width: 40%">
         <div class="input-group mb-auto">
+            <label class="input-group-text" for="select4">Дата</label>
+            <input name="date" type="date" class="form-control" placeholder="введите дату" aria-label="count" aria-describedby="addon-wrapping">
+        </div>
+    </div>
+    <br>
+    <div style="width: 40%">
+        <div class="input-group mb-auto">
             <label class="input-group-text" for="select4">Количество</label>
-            <input name="count" type="text" class="form-control" placeholder="введите количество" aria-label="count" aria-describedby="addon-wrapping">
+            <input name="count" type="number" class="form-control" placeholder="введите количество" aria-label="count" aria-describedby="addon-wrapping">
         </div>
     </div>
     <br>
     <div class="btn-toolbar">
         <div>
             <p>
-                <button class="btn btn-secondary" type="submit">Оформить</button>
+                <button class="btn btn-secondary" formaction="/templates/nakladnaya_template.php?id=<?=get_max_id_document()[0]['id_waybill'] + 1?>" type="submit">Оформить</button>
+                <input type="hidden" name="reception" value="приход">
             </p>
         </div>
-
 </form>
