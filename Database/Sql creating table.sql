@@ -42,28 +42,28 @@ ALTER TABLE IF EXISTS public."Agent"
 	
 --table provider
 CREATE TABLE public."Provider"(
-	
+
 	id_provider serial not null,
 	name_provider varchar, --имя поставщика
 	mail varchar, --почта
 	phone varchar, --телефон
 	address varchar, --адрес
 	CONSTRAINT id_provider PRIMARY KEY (id_provider)
-	
+
 );
 
 CREATE TABLE public."Waybill"(
-	
+
 	id_waybill serial not null,
 	operation varchar, --операция
 	date_of_waybill date, --дата
 	note text, --пояснение
 	id_agent_FK integer NOT NULL, --кем
 	id_provider_FK integer, --от кого
-	id_customer_FT integer, --кому
+    customer varchar, --кому
 	CONSTRAINT id_waybill PRIMARY KEY (id_waybill),
 	CONSTRAINT "check_date" CHECK (date_of_waybill < now())
-	
+
 );
 
 ALTER TABLE public."Waybill" ADD CONSTRAINT id_agent_FK FOREIGN KEY (id_agent_FK)
