@@ -69,6 +69,7 @@ https://metanit.com/php/tutorial/3.3.php
 http://htmlbook.ru/html/button/type
 https://www.php.net/manual/ru/function.explode.php - разбор строки mysql
 
+Таблица поставщиков
 
 убрать все услуги, абстрагироваться от них, только внутренняя часть, т.е. работа с товарами и документами
 Приход - сколько должно было и сколько недостача
