@@ -7,7 +7,7 @@
             <tr>
                 <th>№</th>
                 <th>Тип</th>
-                <th style="width: 15%">Дата</th>
+                <th style="width: 20%">Дата</th>
                 <th>Пояснение</th>
                 <th></th>
             </tr>
