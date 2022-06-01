@@ -5,7 +5,7 @@
             <th>
                 <tr>
                     <td>
-                        <img src="../../images/adaptcircle.gif">
+                        <img src="../../images/otvodcircle.gif">
                     </td>
                     <td>
                         <div class="input-group input-group-sm mb-3">
@@ -38,6 +38,16 @@
                         </div>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <button name="end" formaction="/users/document_page.php?id=<?=get_max_id_document()[0]['id_waybill']?>" type="submit" class="btn btn-secondary mb-auto" style="margin-top: 10px" value="end">Оформить</button>
+                    </td>
+                </tr>
+<!--                <tr>-->
+<!--                    <td>-->
+<!--                        <button name="add" type="submit" class="btn btn-secondary mb-auto" style="margin-top: 10px" value="Add">Добавить товар</button>-->
+<!--                    </td>-->
+<!--                </tr>-->
             </th>
         </table>
     </div>
