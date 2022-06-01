@@ -24,6 +24,6 @@ if (isset($_POST['select0'])){
     }
 }
 
-var_dump($_POST);
+//var_dump($_POST);
 //TODO:переход после операции на оформление документа
 ?>
