@@ -9,12 +9,32 @@ require_once dirname(__DIR__, 1) . "/back/query.php";
 require_once dirname(__DIR__, 1) . "/back/templates.php";
 
 
-$number = get_max_id_document()[0]['id_waybill'] + 1;
-$date = '01.01.2022';
-$customer = 'Забаровский допустим';
-$sum = "Сумматоваров";
-$scores = [1,5,3,4];
-$user = get_admin('Забаровский')[0]['surname'];
+if (isset($_POST['print'])){
+//    var_dump($_POST);
+    $number = $_POST['id_waybill'];
+    $date = $_POST['date_waybill'];
+    $customer = $_POST['customer'];
+    $user = $_POST['agent'];
+    $operation = $_POST['operation'];
+    $note = $_POST['note'];
+    $products = explode(";",$note)[0];
+//    var_dump($products);
+    $product = explode(',',explode(';',$note)[0]);
+    $name = explode(' ',$product[0]);
+    $price = get_product_by_name_form($name[0], $name[1])[0]['price'];
+    $counter = explode(' ',$product[1])[0];
+    $sum = $price * $counter;
+}else{
+    $number = get_max_id_document()[0]['id_waybill'] + 1;
+    $date = '01.01.2022';
+    $customer = 'Забаровский допустим';
+    $sum = "Сумматоваров";
+    $scores = [1,5,3,4];
+    $user = get_admin('Забаровский')[0]['surname'];
+    $number_product = get_max_id_product()[0]['id_product'];
+    $operation = "Акт";
+}
+
 
 ?>
 
@@ -22,7 +42,7 @@ $user = get_admin('Забаровский')[0]['surname'];
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title>Page Setup / Параметры страницы:</title>
+	<title>Акт</title>
 	<style type="text/css">
 		@page { size: 8.27in 11.69in; margin-right: 0.52in; margin-top: 0.18in; margin-bottom: 0.18in }
 		p { color: #000000;  orphans: 2; widows: 2; direction: ltr; background: transparent }
@@ -32,8 +52,8 @@ $user = get_admin('Забаровский')[0]['surname'];
 		a:link { color: #0000ff; text-decoration: underline }
 	</style>
 </head>
-
-<body lang="en-US" text="#000000" link="#0000ff" vlink="#800000" dir="ltr">
+<!--onload="window.print()"-->
+<body lang="en-US" text="#000000" link="#0000ff" vlink="#800000" dir="ltr" onload="window.print()">
 <div title="header" style="width: 50%;">
 
 <!--    Рисунок лого, задан ручками -->
@@ -85,7 +105,7 @@ $user = get_admin('Забаровский')[0]['surname'];
 	<tr>
 		<td width="669" valign="top" style="border: none; padding: 0in">
             <p class="ctl" lang="ru-RU" align="left" style="font-weight: normal; page-break-after: avoid; text-align: center">
-			    <font size="4" style="font-size: 14pt">Акт № <?=$number?>  от <?=$date?> г.</font></p>
+			    <font size="4" style="font-size: 14pt"><?=$operation?> № <?=$number?>  от <?=$date?> </font></p>
 		</td>
 	</tr>
 </table>
@@ -120,21 +140,19 @@ $user = get_admin('Забаровский')[0]['surname'];
 	</tr>
 </table>
 
-<!--<p lang="ru-RU" class="western" align="left"><br/>-->
-
-</p>
+<!--<p lang="ru-RU" class="western" align="left"><br/></p>-->
 
 <?php
 //
 $table = "";
-$table.render_template_row_document(get_product(1));
-$scores = get_products();
 //    var_dump($scores);
-foreach ($scores as $score) {
-//        var_dump($score);
-    $table = $table.render_template_row_document($score);
-}
-//TODO: доделать таблицу документа
+$table = $table.render_template_row_document($products);
+//foreach ($products as $score) {
+////        var_dump($score);
+//    $table = $table.render_template_row_document($score);
+//}
+
+//TODO: доделать таблицу документа, вывод
 $table = render_template_table_document($table);
 //    var_dump($table);
 render_document('Table',$table);
@@ -163,70 +181,60 @@ render_document('Table',$table);
             </p>
 		</td>
 		<td width="85" style="border: none; padding: 0in">
-            <p lang="ru-RU" class="western" align="right" style="letter-spacing: 1.2pt; position: relative; top: 0in; left: 0.4in;">
+            <p lang="ru-RU" class="western" align="right" style="letter-spacing: 1.2pt; position: relative; top: 0in; left: 0.2in;">
 			<font size="2" style="font-size: 11pt"><b><?=$sum?></b></font></p>
 		</td>
 	</tr>
-	<tr valign="top">
-		<td width="425" style="border: none; padding: 0in">
-            <p lang="ru-RU" class="western" align="left" style="letter-spacing: 1.2pt">
-			<br/>
 
-			</p>
-		</td>
-	<tr valign="top">
-		<td width="425" style="border: none; padding: 0in"><p lang="ru-RU" class="western" align="left" style="letter-spacing: 1.2pt">
-			<br/>
-
-			</p>
-		</td>
-		<td width="130" style="border: none; padding: 0in">
-            <p lang="ru-RU" class="western" align="right" style="position: relative; top: 0in; left: 0.4in;">
-			    <font size="2" style="font-size: 11pt"><b>Всего к оплате:</b></font>
-            </p>
-		</td>
-		<td width="85" style="border: none; padding: 0in">
-            <p lang="ru-RU" class="western" align="right" style="letter-spacing: 1.2pt; position: relative; top: 0in; left: 0.4in;">
-			    <font size="2" style="font-size: 11pt"><b><?=$sum?></b></font>
-            </p>
-		</td>
-	</tr>
-	<tr valign="top">
-		<td width="425" style="border: none; padding: 0in">
-            <p lang="ru-RU" class="western" align="left" style="position: relative; top: 0in; left: 0.4in;">
-			    <font size="2" style="font-size: 11pt">Всего наименований <?=$number?>, на сумму <?=$sum?> руб.</font>
-            </p>
-		</td>
-		<td width="130" style="border: none; padding: 0in"><p lang="ru-RU" class="western" align="left">
-			<br/>
-
-			</p>
-		</td>
-		<td width="85" style="border: none; padding: 0in"><p lang="ru-RU" class="western" align="left">
-			<br/>
-
-			</p>
-		</td>
-	</tr>
 <!--	<tr valign="top">-->
-<!--		<td width="425" style="border: none; padding: 0in"><p lang="ru-RU" class="western" align="left">-->
-<!--			<font size="3" style="font-size: 12pt"><b>Одна тысяча-->
-<!--			двести пятьдесят один рубль 00 копеек</b></font></p>-->
+<!--		<td width="425" style="border: none; padding: 0in">-->
+<!--            <p lang="ru-RU" class="western" align="left" style="letter-spacing: 1.2pt">-->
+<!--			<br/>-->
+<!---->
+<!--			</p>-->
 <!--		</td>-->
-<!--		<td colspan="2" width="229" style="border: none; padding: 0in"><p lang="ru-RU" class="western" align="left" style="letter-spacing: 1.0pt">-->
+<!--	<tr valign="top">-->
+<!--		<td width="425" style="border: none; padding: 0in"><p lang="ru-RU" class="western" align="left" style="letter-spacing: 1.2pt">-->
+<!--			<br/>-->
+<!---->
+<!--			</p>-->
+<!--		</td>-->
+<!--		<td width="130" style="border: none; padding: 0in">-->
+<!--            <p lang="ru-RU" class="western" align="right" style="position: relative; top: 0in; left: 0.4in;">-->
+<!--			    <font size="2" style="font-size: 11pt"><b>Всего к оплате:</b></font>-->
+<!--            </p>-->
+<!--		</td>-->
+<!--		<td width="85" style="border: none; padding: 0in">-->
+<!--            <p lang="ru-RU" class="western" align="right" style="letter-spacing: 1.2pt; position: relative; top: 0in; left: 0.4in;">-->
+<!--			    <font size="2" style="font-size: 11pt"><b>--><?//=$sum?><!--</b></font>-->
+<!--            </p>-->
+<!--		</td>-->
+<!--	</tr>-->
+<!--	<tr valign="top">-->
+<!--		<td width="425" style="border: none; padding: 0in">-->
+<!--            <p lang="ru-RU" class="western" align="left" style="position: relative; top: 0in; left: 0.4in;">-->
+<!--			    <font size="2" style="font-size: 11pt">Всего наименований --><?//=$number_product?><!--, на сумму --><?//=$sum?><!-- руб.</font>-->
+<!--            </p>-->
+<!--		</td>-->
+<!--		<td width="130" style="border: none; padding: 0in"><p lang="ru-RU" class="western" align="left">-->
+<!--			<br/>-->
+<!---->
+<!--			</p>-->
+<!--		</td>-->
+<!--		<td width="85" style="border: none; padding: 0in"><p lang="ru-RU" class="western" align="left">-->
 <!--			<br/>-->
 <!---->
 <!--			</p>-->
 <!--		</td>-->
 <!--	</tr>-->
+
 </table>
 <p lang="ru-RU" style="border-top: none; border-bottom: 1pt solid #000000; border-left: none; border-right: none; padding-top: 0in; padding-bottom: 0.01in; padding-left: 0in; padding-right: 0in; page-break-after: avoid">
 <br/>
 
 </p>
-<!--<p lang="ru-RU" class="western" align="left"><br/>-->
+<!--<p lang="ru-RU" class="western" align="left"><br/></p>-->
 
-</p>
 <table width="683" cellpadding="7" cellspacing="0">
 	<col width="221"/>
 
@@ -289,33 +297,7 @@ render_document('Table',$table);
 		</td>
 	</tr>
 </table>
-<p lang="ru-RU" class="western" align="left"><br/>
-
-</p>
-
-<!--<div title="footer">-->
-<!--	<table width="684" cellpadding="7" cellspacing="0">-->
-<!--		<col width="526"/>-->
-<!---->
-<!--		<col width="130"/>-->
-<!---->
-<!--		<tr>-->
-<!--			<td width="526" height="58" style="border: none; padding: 0in"><p lang="ru-RU" align="center" style="margin-right: -0.08in">-->
-<!--				<br/>-->
-<!---->
-<!--				</p>-->
-<!--			</td>-->
-<!--			<td width="130" style="border: none; padding: 0in"><p align="right" style="margin-top: 0.08in">-->
-<!--				<font size="3" style="font-size: 12pt"><span lang="ru-RU">Стр.-->
-<!--				</span><span style="background: #c0c0c0"><sdfield type=PAGE subtype=RANDOM format=PAGE>1</sdfield></span><span lang="ru-RU">-->
-<!--				из </span><span style="background: #c0c0c0"><sdfield type=DOCSTAT subtype=PAGE format=ARABIC>1</sdfield></span></font></p>-->
-<!--			</td>-->
-<!--		</tr>-->
-<!--	</table>-->
-<!--	<p align="left"><br/>-->
-<!---->
-<!--	</p>-->
-<!--</div>-->
+<p lang="ru-RU" class="western" align="left"><br/></p>
 
 </body>
 </html>
