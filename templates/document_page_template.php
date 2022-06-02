@@ -3,6 +3,15 @@
 //var_dump($_GET);
 
 $id_waybill = $_GET['id'];
+
+if (isset($_POST['save'])){
+    $new_note = $_POST['note'];
+    $new_customer = $_POST['customer'];
+    update_waybill_save($id_waybill,$new_note,$new_customer);
+    alert('Сохранено успешно');
+    // TODO: обновление данных / сохранение (готово)
+}
+
 $waybill = get_waybill($id_waybill);
 $number = $waybill[0]['id_waybill'];
 $operation = $waybill[0]['operation'];
@@ -12,13 +21,6 @@ $id_agent = $waybill[0]['id_agent_fk'];
 $id_provider = $waybill[0]['id_provider_fk'];
 $agent = get_surname($id_agent);
 
-if (isset($_POST['save'])){
-    var_dump($_POST);
-    $new_note = $_POST['note'];
-    $new_customer = $_POST['customer'];
-    $new_agent = $_POST['agent'];
-    // TODO: обновление данных / сохранение
-}
 
 if (isset($_POST['count_order']) and !empty($_POST['count_order'][0])){
     $st = get_waybill(get_max_id_document()[0]['id_waybill'])[0]['note'];
@@ -82,7 +84,7 @@ if (isset($_POST['count_order']) and !empty($_POST['count_order'][0])){
                 </tr>
                 <tr><td><span class="lead">Работник</span>
                         <font size="4" color="#808080"></font></td>
-                    <td><input class="form-check-input" name="agent" type="text" value="<?=$agent?>"  style="width:40%;"></td>
+                    <td><input disabled class="form-check-input" name="agent" type="text" value="<?=$agent?>"  style="width:40%;"></td>
                 </tr>
             </th>
             </tbody>
@@ -110,6 +112,3 @@ if (isset($_POST['count_order']) and !empty($_POST['count_order'][0])){
             </p>
         </div>
 </form>
-
-<?php
-//var_dump($_POST);
