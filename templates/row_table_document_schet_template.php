@@ -5,6 +5,7 @@ $note = $_POST['note'];
 $product = explode(',',explode(';',$note)[0]);
 $name = explode(' ',$product[0]);
 $price = get_product_by_name_form($name[0], $name[1])[0]['price'];
+//var_dump($price);
 //var_dump($product);
 //var_dump($name);
 //var_dump($price);
