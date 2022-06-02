@@ -84,6 +84,12 @@ function render_template_admin_page($args){
     return template(dirname(__DIR__,1).'/templates/admin_page_template.php',$args);
 }
 
+// Рендер страницы с пользователями
+function render_template_users_admin_page(){
+    return template(dirname(__DIR__,1).'/templates/users_admin_template.php',[]);
+}
+
+
 
 // Таблица товаров
 function render_template_row_product($args){
@@ -156,6 +162,16 @@ function render_template_table_inventory_product($args){
     $args = ["table" => $args];
     return template(dirname(__DIR__,1).'/templates/table_product_inventory_template.php',$args);
 }
+
+function render_template_row_inventory_result($args){
+    return template(dirname(__DIR__,1).'/templates/row_result_inventory_template.php',$args);
+}
+
+function render_template_table_inventory_result($args){
+    $args = ["table" => $args];
+    return template(dirname(__DIR__,1).'/templates/table_result_inventory_template.php',$args);
+}
+
 
 // Рендер строки документа Счет ИП
 function render_template_row_document($item){

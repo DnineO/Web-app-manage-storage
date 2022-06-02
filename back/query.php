@@ -55,6 +55,10 @@ function update_waybill($note){
     pg_fetch_all(query("UPDATE public.\"Waybill\"	SET note = '$note' WHERE id_waybill = '$id';"));
 }
 
+function update_waybill_save($id,$note,$customer){
+    pg_fetch_all(query("update \"Waybill\" SET note='$note', customer='$customer' WHERE id_waybill = '$id';"));
+}
+
 // Запрос с возвратом всех товаров
 function get_products(){
     return pg_fetch_all(query("select * from \"Product\" ORDER BY id_product ASC;"));
@@ -100,9 +104,7 @@ function get_providers(){
 
 // Смена пароля
 function change_pass($id,$new){
-    pg_fetch_all(query("UPDATE public.\"Agent\"
-	    SET \"pass\" = '$new'
-	    WHERE id_agent= '$id';"));
+    pg_fetch_all(query("UPDATE public.\"Agent\" SET \"pass\" = '$new'  WHERE id_agent= '$id';"));
 }
 
 // Возврат последнего значения id продукта

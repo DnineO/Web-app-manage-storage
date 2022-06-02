@@ -24,4 +24,15 @@ function clear($str){
     $str = "";
 }
 
+// sum
+function sum_count($arg){
+    $sum = 0;
+    $i = 1;
+    foreach ($arg as $item){
+        $sum = $sum + $item;
+        $i = $i + 1;
+    }
+    return $sum;
+}
+
 ?>
