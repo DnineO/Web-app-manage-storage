@@ -9,7 +9,10 @@ $surname = $_SESSION['name'];
 ?>
 
 
-
-<h3>
-<!--    Main admin page - --><?//=$surname?>
-</h3>
+<div class="dropdown">
+    <p>
+        <button class="btn btn-secondary" onclick="location.href = 'users_admin_page.php'"> Пользователи  </button>
+        <button class="btn btn-secondary" onclick="location.href= ''"> Товары </button>
+        <button class="btn btn-secondary" onclick="location.href=''"> Документы </button>
+    </p>
+</div>

@@ -1,9 +1,13 @@
+<?php
+//print_r($_POST);
+?>
 <form action="" method="post">
     <div>
         <?php
         $table = "";
-        $position = get_products();
+        $arr = array();
 
+        $position = get_products();
         foreach ($position as $product){
             $table = $table.render_template_row_inventory_product($product);
         }
@@ -14,7 +18,8 @@
     </div>
 
     <div style="position: fixed; bottom:10px; width: 200px; margin-left: 80%;">
-        <button class="btn btn-secondary" type="submit">Подтвердить</button>
+        <button class="btn btn-secondary" formaction="/templates/inventory_document_template.php" type="submit">Подтвердить</button>
+
     </div>
 </form>
-<!--TODO: переход на страницу документирования -->
+<!--TODO: переход на страницу документирования (есть) -->

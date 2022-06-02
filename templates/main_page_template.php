@@ -5,9 +5,9 @@
         <!--    <input type="button" class="btn btn-secondary" value="Резервирование">-->
         <button class="btn btn-secondary" onclick="location.href='inventory_page.php'"> Инвентаризация </button>
         <!--    <input type="button" class="btn btn-secondary" value="Счет ИП">-->
-        <button class="btn btn-secondary" onclick="location.href='/templates/nakladnaya_template.php'">Приход</button>
-        <button class="btn btn-secondary" onclick="location.href='/templates/nakladnaya_template.php'">Отгрузка</button>
-        <button class="btn btn-secondary" onclick="location.href='/templates/schet_IP_template.php'">Счет ИП(-)</button>
+<!--        <button class="btn btn-secondary" onclick="location.href='/templates/nakladnaya_template.php'">Приход</button>-->
+<!--        <button class="btn btn-secondary" onclick="location.href='/templates/inventory_document_template.php'">Документ ивентаризации</button>-->
+<!--        <button class="btn btn-secondary" onclick="location.href='/templates/schet_IP_template.php'">Счет ИП(-)</button>-->
     </p>
 </div>
 
