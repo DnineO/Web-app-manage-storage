@@ -11,7 +11,6 @@ require_once dirname(__DIR__, 1) . "/back/templates.php";
 
 showPageIfLogged("Inventory page", render_template_inventory_page());
 
-// TODO: подводить итог
 
 ?>
 

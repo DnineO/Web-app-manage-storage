@@ -58,12 +58,10 @@ if (isset($_POST["select2"]) and isset($_POST["select1"])){
         $select = $_POST['select1'][0] . " " . $_POST['select2'][0];
         $str = $str.$select;
         update_waybill($str);
-//        echo "update ";
     }else{
         $customer = $_POST['customer'];
         $select = $_POST['select1'][0] . " " . $_POST['select2'][0];
         push_waybill($date,$select,$agent,$customer);
-//        echo "push ";
     }
 
 //TODO: переход на страницу отгрузки,документации
@@ -105,13 +103,10 @@ if (isset($_POST["select2"]) and isset($_POST["select1"])){
     if (isset($_POST['add'])) {
         $str = get_waybill(get_max_id_document()[0]['id_waybill'])[0]['note'];
         second_note($str);
-//        var_dump($str);
     }
 
-//    echo('zero ');
 }
 
 // TODO: if добавить то просто update, если оформить то конец ( не готово)
 
-//var_dump($_POST);
 ?>
