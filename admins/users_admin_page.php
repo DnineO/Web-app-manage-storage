@@ -10,7 +10,4 @@ require_once dirname(__DIR__, 1)."/back/functions.php";
 
 
 
-
-showPageIfLogged('Main-page admin', render_template_main_admin_page());
-
-?>
+showPageIfLogged("Users page",render_template_users_admin_page());
