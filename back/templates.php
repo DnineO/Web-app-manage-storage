@@ -89,17 +89,55 @@ function render_template_users_admin_page(){
     return template(dirname(__DIR__,1).'/templates/users_admin_template.php',[]);
 }
 
+// Рендер страницы с товарами
+function render_template_products_admin_page(){
+    return template(dirname(__DIR__,1).'/templates/products_admin_template.php',[]);
+}
 
+// Рендер страницы с документами
+function render_template_documents_admin_page(){
+    return template(dirname(__DIR__,1).'/templates/documents_admin_template.php',[]);
+}
+
+//
+function render_template_user_admin_page(){
+    return template(dirname(__DIR__,1).'/templates/user_admin_template.php',[]);
+}
+
+//
+function render_template_user_add_page(){
+    return template(dirname(__DIR__,1).'/templates/form_user_admin_template.php',[]);
+}
 
 // Таблица товаров
 function render_template_row_product($args){
     return template(dirname(__DIR__,1).'/templates/row_table_product_template.php',$args);
 }
 
-
 function render_template_table_product($args){
     $args = ["table" => $args];
     return template(dirname(__DIR__,1).'/templates/table_product_template.php',$args);
+}
+
+// Таблица товаров админа
+function render_template_row_admin_product($args){
+    return template(dirname(__DIR__,1).'/templates/row_table_product_admin_template.php',$args);
+}
+
+function render_template_table_admin_product($args){
+    $args = ["table" => $args];
+    return template(dirname(__DIR__,1).'/templates/table_product_admin_template.php',$args);
+}
+
+
+// Таблица пользователей
+function render_template_row_users($args){
+    return template(dirname(__DIR__,1).'/templates/row_table_users_template.php',$args);
+}
+
+function render_template_table_users($args){
+    $args = ["table" => $args];
+    return template(dirname(__DIR__,1).'/templates/table_users_template.php',$args);
 }
 
 
@@ -111,6 +149,16 @@ function render_template_row_waybill($args){
 function render_template_table_waybill($args){
     $args = ["table" => $args];
     return template(dirname(__DIR__,1).'/templates/table_waybill_template.php',$args);
+}
+
+// Таблица документов страница администратора
+function render_template_row_admin_waybill($args){
+    return template(dirname(__DIR__,1).'/templates/row_table_waybill_admin_template.php',$args);
+}
+
+function render_template_table_admin_waybill($args){
+    $args = ["table" => $args];
+    return template(dirname(__DIR__,1).'/templates/table_waybill_admin_template.php',$args);
 }
 
 // Рендер страницы оформления товара
@@ -127,9 +175,25 @@ function render_template_product_page(){
     return template(dirname(__DIR__,1).'/templates/product_page_template.php',[]);
 }
 
+function render_template_product_add_admin_page(){
+    return template(dirname(__DIR__, 1) . '/templates/form_product_admin_template.php',[]);
+}
+
+// Рендер индивидуальной страницы товара
+function render_template_product_admin_page(){
+    return template(dirname(__DIR__,1).'/templates/product_page_admin_template.php',[]);
+}
+
+
+
+
 // Рендер индивидуальной страницы документа
 function render_template_document_page(){
     return template(dirname(__DIR__,1).'/templates/document_page_template.php',[]);
+}
+
+function render_template_document_admin_page(){
+    return template(dirname(__DIR__,1).'/templates/document_page_admin_template.php',[]);
 }
 
 // Рендер страницы приема/отгрузки
