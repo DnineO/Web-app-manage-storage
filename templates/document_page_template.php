@@ -43,17 +43,11 @@ if (isset($_POST['count_order']) and !empty($_POST['count_order'][0])){
     if (isset($_POST['count_order']) and !empty($_POST['count_order'])){
         $st = $st."," . $_POST['count_order']." шт.;";
     }
-//    echo($st);
-//    var_dump($st);
     update_waybill($st);
     $note = $st;
 }else{
     $note = $waybill[0]['note'];
 }
-
-
-
-
 
 ?>
 

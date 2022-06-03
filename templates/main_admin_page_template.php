@@ -5,14 +5,12 @@ if (session_status() == PHP_SESSION_NONE){
 
 $surname = $_SESSION['name'];
 
-
 ?>
-
 
 <div class="dropdown">
     <p>
         <button class="btn btn-secondary" onclick="location.href = 'users_admin_page.php'"> Пользователи  </button>
-        <button class="btn btn-secondary" onclick="location.href= ''"> Товары </button>
-        <button class="btn btn-secondary" onclick="location.href=''"> Документы </button>
+        <button class="btn btn-secondary" onclick="location.href= 'products_admin_page.php'"> Товары </button>
+        <button class="btn btn-secondary" onclick="location.href='documents_admin_page.php'"> Документы </button>
     </p>
 </div>
