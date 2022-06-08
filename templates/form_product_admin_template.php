@@ -33,7 +33,7 @@ $id_product = get_max_id_product()[0]['id_product'] + 1;
 
                 <tr><td><span class="lead">Форма </span>
                         <font size="4" color="#808080"></font></td>
-                    <td><select class="form-select" style="width: 40%;" name="form[]" required>
+                    <td><select required class="form-select" style="width: 40%;" name="form[]">
 <!--                            <option selected disabled>Выберите</option>-->
                             <option value="круглый">Круглый</option>
                             <option value="прямоугольный">Прямоугольный</option>

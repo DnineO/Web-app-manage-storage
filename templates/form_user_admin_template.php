@@ -5,21 +5,21 @@
             <th>
                 <tr><td><span class="lead">Фамилия </span>
                         <font size="4" color="#808080"></font></td>
-                    <td><input name="surname" class="form-check-input"  style="width:90%;"></td>
+                    <td><input required name="surname" class="form-check-input"  style="width:90%;"></td>
                 </tr>
 
                 <tr><td><span class="lead">Имя </span>
                         <font size="4" color="#808080"></font></td>
-                    <td><input name="firstname" class="form-check-input"  style="width:90%;"></td>
+                    <td><input required name="firstname" class="form-check-input"  style="width:90%;"></td>
                 </tr>
 
                 <tr><td><span class="lead">Дата рождения </span>
                         <font size="4" color="#808080"></font></td>
-                    <td><input name="date_birth" class="form-check-input" type="date"  style="width:90%;"></td>
+                    <td><input required name="date_birth" class="form-check-input" type="date"  style="width:90%;"></td>
                 </tr>
 
                 <tr><td><span class="lead">Роль</span>
-                        <font size="4" color="#808080"></font></td>
+                        <font  size="4" color="#808080"></font></td>
                     <td>
                        <select type="text" name="role[]" class="form-check-input" style="width:90%;">
                             <option selected value="user">User</option>
@@ -33,7 +33,7 @@
                         <font size="4" color="#808080"></font>
                     </td>
                     <td>
-                        <input type="text" name="pass" class="form-check-input" " style="width:90%;">
+                        <input required type="text" name="pass" class="form-check-input" " style="width:90%;">
                     </td>
                 </tr>
             </th>
