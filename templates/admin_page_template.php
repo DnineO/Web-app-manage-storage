@@ -12,7 +12,7 @@ if ((isset($_POST["old"]) or isset($_POST["new"]))){
 
     $old= $_POST['old'][0];
     $new = $_POST['new'][0];
-
+    $id = $user[0]['id_agent'];
 //    var_dump(get_pass($id));
     if ($old == get_pass($id)){
         change_pass($id,$new);
