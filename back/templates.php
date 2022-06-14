@@ -140,6 +140,12 @@ function render_template_table_users($args){
     return template(dirname(__DIR__,1).'/templates/table_users_template.php',$args);
 }
 
+function render_template_providers_admin_page(){
+    return template(dirname(__DIR__, 1) . '/templates/providers_admin_template.php',[]);
+}
+
+
+
 
 // Таблица документов
 function render_template_row_waybill($args){
