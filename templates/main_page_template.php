@@ -8,6 +8,8 @@
 <!--        <button class="btn btn-secondary" onclick="location.href='/templates/nakladnaya_template.php'">Приход</button>-->
 <!--        <button class="btn btn-secondary" onclick="location.href='/templates/inventory_document_template.php'">Документ ивентаризации</button>-->
 <!--        <button class="btn btn-secondary" onclick="location.href='/templates/schet_IP_template.php'">Счет ИП(-)</button>-->
+        <button class="btn btn-secondary" onclick="location.href = 'products_page.php'" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1"> Таблица товаров </button>
+        <button class="btn btn-secondary" onclick="location.href='documents_page.php'" data-bs-toggle="collapse" href="#collapse2" role="button" aria-expanded="false" aria-controls="collapse2"> Таблица документов </button>
     </p>
 </div>
 
@@ -16,55 +18,55 @@
 <div class="btn-toolbar">
     <div>
         <p>
-            <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
-                Показать таблицу товаров
-            </button>
+<!--            <button class="btn btn-secondary" onclick="location.href = 'products_page.php'" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">-->
+<!--                Таблица товаров-->
+<!--            </button>-->
         </p>
 
-        <div class="collapse" id="collapse1">
-            <div class="card card-body">
+<!--        <div class="collapse" id="collapse1">-->
+<!--            <div class="card card-body">-->
 <!--                render table product.-->
-
-                <?php
-                $table = "";
-                $position = get_products();
-
-                foreach ($position as $product){
-                    $table = $table.render_template_row_product($product);
-                }
-
-                $table = render_template_table_product($table);
-                render_page("Table product", $table);
-                ?>
-
-            </div>
-        </div>
+<!---->
+<!--                --><?php
+//                $table = "";
+//                $position = get_products();
+//
+//                foreach ($position as $product){
+//                    $table = $table.render_template_row_product($product);
+//                }
+//
+//                $table = render_template_table_product($table);
+//                render_page("Table product", $table);
+//                ?>
+<!---->
+<!--            </div>-->
+<!--        </div>-->
 <!--        <br>-->
     </div>
 </div>
 <div class="btn-toolbar">
     <div>
         <p>
-            <a class="btn btn-secondary" data-bs-toggle="collapse" href="#collapse2" role="button" aria-expanded="false" aria-controls="collapse2">
-                Показать таблицу номенклатуры
-            </a>
+<!--            <button class="btn btn-secondary" onclick="location.href='documents_page.php'" data-bs-toggle="collapse" href="#collapse2" role="button" aria-expanded="false" aria-controls="collapse2">-->
+<!--                Таблица документов-->
+<!--            </button>-->
         </p>
 
-        <div class="collapse" id="collapse2">
-            <div class="card card-body">
+<!--        <div class="collapse" id="collapse2">-->
+<!--            <div class="card card-body">-->
 <!--                render table waybill.-->
-                <?php
-                $table = "";
-                $position = get_waybills();
-
-                foreach ($position as $doc){
-                    $table = $table.render_template_row_waybill($doc);
-                }
-
-                $table = render_template_table_waybill($table);
-                render_page("Table product", $table);
-                ?>
-            </div>
-        </div>
+<!--                --><?php
+//                $table = "";
+//                $position = get_waybills();
+//
+//                foreach ($position as $doc){
+//                    $table = $table.render_template_row_waybill($doc);
+//                }
+//
+//                $table = render_template_table_waybill($table);
+//                render_page("Table product", $table);
+//                ?>
+<!--            </div>-->
+<!--        </div>-->
     </div>
 </div>

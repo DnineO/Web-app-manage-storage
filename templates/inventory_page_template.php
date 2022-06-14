@@ -9,7 +9,7 @@
 
         $position = get_products();
         foreach ($position as $product){
-            $table = $table.render_template_row_inventory_product($product);
+                $table = $table.render_template_row_inventory_product($product);
         }
 
         $table = render_template_table_inventory_product($table);

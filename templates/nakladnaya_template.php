@@ -30,23 +30,38 @@ if (isset($_POST['reception'])){ // приход
     $products = explode(";",$note);
 }else{
     if (isset($_POST['shipping'])) { // отгрузка
-        $date = $_POST['date'];
-        $number = get_max_id_document()[0]['id_waybill'] + 1;
-        $saler = $_POST['customer']; // кто принял
-        $customer = $surname; // от кого
-        $id_agent = get_admin($customer)[0]['id_agent'];
-        // добавление в бд
-        $note = $_POST['select2'][0]." ".$_POST['select3'][0]." ,".$_POST['count']." шт.;";
-        push_shipping($date,$note,$id_agent,$saler);
-
         $name1 = $_POST['select2'][0];
         $form1 = $_POST['select3'][0];
         $new_count = $_POST['count'];
         $count = get_product_by_name_form($name1,$form1)[0]['counter'] - $new_count;
-//        var_dump($count);
-        update_product_count($name1,$form1,$count);
+        if ($count < 0) {
+            $perem = 'error';
+            echo '<form action="" method="post">';
+            echo '<input type="hidden" name="error" value="'.$perem.'">';
+            echo '</form>';
+            header('Location: http://localhost/users/reception_page.php?='.$perem);
+            alert('Нет достаточного количества');
+            exit;
+            //TODO: доделать вывод ошибки
+        }else {
+            $date = $_POST['date'];
+            $number = get_max_id_document()[0]['id_waybill'] + 1;
+            $saler = $_POST['customer']; // кто принял
+            $customer = $surname; // от кого
+            $id_agent = get_admin($customer)[0]['id_agent'];
+            // добавление в бд
+            $note = $_POST['select2'][0] . " " . $_POST['select3'][0] . " ," . $_POST['count'] . " шт.;";
+            push_shipping($date, $note, $id_agent, $saler);
 
-        $products = explode(";",$note);
+//        $name1 = $_POST['select2'][0];
+//        $form1 = $_POST['select3'][0];
+//        $new_count = $_POST['count'];
+//        $count = get_product_by_name_form($name1,$form1)[0]['counter'] - $new_count;
+//        var_dump($count);
+            update_product_count($name1, $form1, $count);
+
+            $products = explode(";", $note);
+        }
     } else {
         // заглушка
         $date = "01.01.2000";
@@ -58,7 +73,23 @@ if (isset($_POST['reception'])){ // приход
     }
 }
 
-
+if (isset($_POST['print'])){
+    if ($_POST['operation'] = 'Отгрузка') {
+        $date = $_POST['date'];
+        $number = $_POST['id_waybill'];
+        $customer = $_POST['customer'];
+        $saler = $_POST['agent'];
+        $note = $_POST['note'];
+        $products = explode(";", $note);
+    }else{
+        $date = $_POST['date'];
+        $number = $_POST['id_waybill'];
+        $saler = $_POST['customer'];
+        $customer = $_POST['agent'];
+        $note = $_POST['note'];
+        $products = explode(";", $note);
+    }
+}
 
 ?>
 

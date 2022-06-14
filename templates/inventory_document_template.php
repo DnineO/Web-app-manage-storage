@@ -49,9 +49,11 @@ $customer = $_SESSION['name'];
 //    var_dump($_POST['new_count']);
     $products = get_products();
 //    var_dump($products);
-    foreach ($products as $product){
-
-        $table = $table.render_template_row_inventory_result($product);
+    foreach ($products as $product) {
+        if ($_POST['new_count'][$product['id_product']] != 0) {
+//        var_dump($product);
+            $table = $table . render_template_row_inventory_result($product);
+        }
     }
     $table = render_template_table_inventory_result($table);
     render_document('Table', $table);

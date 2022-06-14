@@ -106,3 +106,17 @@ if (isset($_POST['count_order']) and !empty($_POST['count_order'][0])){
             </p>
         </div>
 </form>
+<form action="" method="post">
+    <div class="btn-toolbar">
+        <p>
+            <button name="print" class="btn btn-secondary" formaction="/templates/nakladnaya_template.php">Печать накладной</button>
+            <input type="hidden" name="id_waybill" value="<?=$id_waybill?>">
+            <input type="hidden" name="operation" value="<?=$operation?>">
+            <input type="hidden" name="date" value="<?=$date?>">
+            <input type="hidden" name="customer" value="<?=$customer?>">
+            <input type="hidden" name="date_waybill" value="<?=$date?>">
+            <input type="hidden" name="agent" value="<?=$agent?>">
+            <input type="hidden" name="note" value="<?=$note?>">
+        </p>
+    </div>
+</form>

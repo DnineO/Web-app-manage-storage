@@ -1,5 +1,3 @@
-
-
 <form action="" method="post">
     <div style="width: 40%">
         <label class="input-group-text mb-auto" for="select0">Отгрузка</label>

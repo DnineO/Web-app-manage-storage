@@ -1,10 +1,10 @@
 <?php
 
 //var_dump($_POST);
-if (isset($_POST) and !empty($_POST)){
+if (isset($_POST['select2']) and !empty($_POST)){
     $note = $_POST['select2'][0]." ".$_POST['select3'][0]." ,".$_POST['count']." шт.;";
 }else{
-    $note = get_waybill(3)[0]['note'];
+    $note = get_waybill($_POST['id_waybill'])[0]['note'];
 }
 $product = explode(',',explode(';',$note)[0]);
 $name = explode(' ',$product[0]);
