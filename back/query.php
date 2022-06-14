@@ -174,5 +174,8 @@ function update_product($id,$count,$price){
     return pg_fetch_all(query("UPDATE public.\"Product\" SET counter = '$count', price = '$price' WHERE id_product = '$id';"));
 }
 
+function get_sum_product($id){
+    return pg_fetch_all(query("Select counter from \"Product\" where id_product = '$id';"));
+}
 
 ?>
