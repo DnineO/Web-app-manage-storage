@@ -10,9 +10,13 @@ require_once dirname(__DIR__, 1)."/back/functions.php";
 
 //var_dump($_POST);
 
-if (isset($_POST['delete'])){
-    delete_agent($_POST['id']);
-    alert('Пользователь №'.$_POST['id'].' удален');
+if (isset($_POST['delete'])) {
+    if (delete_agent($_POST['id']) == 'good') {
+        delete_agent($_POST['id']);
+        alert('Пользователь №' . $_POST['id'] . ' удален');
+    }else{
+        alert('Удаление не завершено');
+    }
 }
 
 if (isset($_POST['add_user'])){
