@@ -49,6 +49,7 @@ function update_agent($id,$surname,$firstname,$date,$role,$pass){
 
 function delete_agent($id){
     pg_fetch_all(query("DELETE FROM public.\"Agent\"	WHERE id_agent = '$id';"));
+    return 'good';
 }
 
 function push_waybill($date,$note,$agent,$customer){
