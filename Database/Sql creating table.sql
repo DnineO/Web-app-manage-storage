@@ -81,12 +81,12 @@ CREATE TABLE public."Product"(
 	name_product varchar, --наименование
 	form varchar, --форма изделия
 -- 	size varchar, --диаметр/периметр
-    material varchar, --материал
-    sizeA int, --сооств. А
-    sizeB int, --В
-    sizeC int, --С
-    sizeD int, --D
-    length int, --длина
+--     material varchar, --материал
+--     sizeA int, --сооств. А
+--     sizeB int, --В
+--     sizeC int, --С
+--     sizeD int, --D
+--     length int, --длина
 	counter int, --количество
 	price bigint, --цена за шт
 	CONSTRAINT id_product PRIMARY KEY (id_product),
