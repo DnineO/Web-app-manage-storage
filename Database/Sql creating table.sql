@@ -81,13 +81,17 @@ CREATE TABLE public."Product"(
 	name_product varchar, --наименование
 	form varchar, --форма изделия
 -- 	size varchar, --диаметр/периметр
--- 	material varchar, --материал
+    material varchar, --материал
+    sizeA int, --сооств. А
+    sizeB int, --В
+    sizeC int, --С
+    sizeD int, --D
+    length int, --длина
 	counter int, --количество
--- 	length int, --длина
 	price bigint, --цена за шт
 	CONSTRAINT id_product PRIMARY KEY (id_product),
 	--CONSTRAINT "count" CHECK (counter > '0')
-	
+
 )
 
 create or replace function count_zero()
