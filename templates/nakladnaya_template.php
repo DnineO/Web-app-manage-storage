@@ -10,57 +10,66 @@ require_once dirname(__DIR__, 1) . "/back/templates.php";
 
 $surname = $_SESSION['name'];
 //var_dump($_POST);
+$error = 'error';
 
 if (isset($_POST['reception'])){ // приход
-    $date = $_POST['date']; // дата
-    $number = get_max_id_document()[0]['id_waybill'] + 1;
-    $saler = $surname; // кто принял
-    $id_agent = get_admin($saler)[0]['id_agent'];
-    $customer = $_POST['select1'][0]; // от кого
-    // добавление в бд
-    $note = $_POST['select2'][0]." ".$_POST['select3'][0]." ,".$_POST['count']." шт.;";
-    push_reception($date,$note,$id_agent,$customer);
+    if ((isset($_POST['select1']) == 'non') && (isset($_POST['select2']) == 'non') && (isset($_POST['select3']) == 'non')){
+        $date = $_POST['date']; // дата
+        $number = get_max_id_document()[0]['id_waybill'] + 1;
+        $saler = $surname; // кто принял
+        $id_agent = get_admin($saler)[0]['id_agent'];
+        $customer = $_POST['select1'][0]; // от кого
+        // добавление в бд
+        $note = $_POST['select2'][0]." ".$_POST['select3'][0]." ,".$_POST['count']." шт.;";
+        push_reception($date,$note,$id_agent,$customer);
 
-    $name1 = $_POST['select2'][0];
-    $form1 = $_POST['select3'][0];
-    $new_count = $_POST['count'];
-    $count = get_product_by_name_form($name1,$form1)[0]['counter'] + $new_count;
-    update_product_count($name1,$form1,$count);
-
-    $products = explode(";",$note);
-}else{
-    if (isset($_POST['shipping'])) { // отгрузка
         $name1 = $_POST['select2'][0];
         $form1 = $_POST['select3'][0];
         $new_count = $_POST['count'];
-        $count = get_product_by_name_form($name1,$form1)[0]['counter'] - $new_count;
-        if ($count < 0) {
-            $perem = 'error';
-            echo '<form action="" method="post">';
-            echo '<input type="hidden" name="error" value="'.$perem.'">';
-            echo '</form>';
-            header('Location: http://localhost/users/reception_page.php?='.$perem);
-            alert('Нет достаточного количества');
-            exit;
-            //TODO: доделать вывод ошибки
-        }else {
-            $date = $_POST['date'];
-            $number = get_max_id_document()[0]['id_waybill'] + 1;
-            $saler = $_POST['customer']; // кто принял
-            $customer = $surname; // от кого
-            $id_agent = get_admin($customer)[0]['id_agent'];
-            // добавление в бд
-            $note = $_POST['select2'][0] . " " . $_POST['select3'][0] . " ," . $_POST['count'] . " шт.;";
-            push_shipping($date, $note, $id_agent, $saler);
+        $count = get_product_by_name_form($name1,$form1)[0]['counter'] + $new_count;
+        update_product_count($name1,$form1,$count);
+
+        $products = explode(";",$note);
+    }else{
+        header('Location: http://localhost/users/reception_page.php?='.$error);
+        exit;
+    }
+
+}else{
+    if (isset($_POST['shipping'])) { // отгрузка
+        if ((isset($_POST['select1']) == 'non') && (isset($_POST['select2']) == 'non') && (isset($_POST['select3']) == 'non')) {
+
+            $name1 = $_POST['select2'][0];
+            $form1 = $_POST['select3'][0];
+            $new_count = $_POST['count'];
+            $count = get_product_by_name_form($name1, $form1)[0]['counter'] - $new_count;
+            if ($count < 0) {
+                header('Location: http://localhost/users/reception_page.php?=' . $error);
+                alert('Нет достаточного количества');
+                exit;
+                //TODO: доделать вывод ошибки
+            } else {
+                $date = $_POST['date'];
+                $number = get_max_id_document()[0]['id_waybill'] + 1;
+                $saler = $_POST['customer']; // кто принял
+                $customer = $surname; // от кого
+                $id_agent = get_admin($customer)[0]['id_agent'];
+                // добавление в бд
+                $note = $_POST['select2'][0] . " " . $_POST['select3'][0] . " ," . $_POST['count'] . " шт.;";
+                push_shipping($date, $note, $id_agent, $saler);
 
 //        $name1 = $_POST['select2'][0];
 //        $form1 = $_POST['select3'][0];
 //        $new_count = $_POST['count'];
 //        $count = get_product_by_name_form($name1,$form1)[0]['counter'] - $new_count;
 //        var_dump($count);
-            update_product_count($name1, $form1, $count);
+                update_product_count($name1, $form1, $count);
 
-            $products = explode(";", $note);
+                $products = explode(";", $note);
+            }
+        }else{
+            header('Location: http://localhost/users/reception_page.php?='.$error);
+            exit;
         }
     } else {
         // заглушка
