@@ -8,7 +8,7 @@
                     <td>
                         <div class="input-group mb-3" style="width: 90%">
                             <label class="input-group-text" for="select2">Кому</label>
-                            <input class="form-control" name="customer" type="text">
+                            <input required class="form-control" name="customer" type="text">
                         </div>
                     </td>
                 </tr>

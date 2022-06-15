@@ -8,8 +8,8 @@
     <div style="width: 40%">
         <div class="input-group mb-auto">
             <label class="input-group-text" for="select1">От кого</label>
-            <select name="select1[]" class="form-select" id="select1">
-                <option selected disabled>Выберите</option>
+            <select required name="select1[]" class="form-select" id="select1">
+                <option selected disabled value="non">Выберите</option>
                 <?php
                 $select = '';
                 $position = get_providers();
@@ -27,8 +27,8 @@
     <div style="width: 40%">
         <div class="input-group mb-auto">
             <label class="input-group-text" for="select2">Наименование</label>
-            <select name="select2[]" class="form-select" id="select2">
-                <option selected disabled>Выберите</option>
+            <select required name="select2[]" class="form-select" id="select2">
+                <option selected disabled value="non">Выберите</option>
                 <?php
                 $select = '';
                 $position = get_products();
@@ -56,8 +56,8 @@
     <div style="width: 40%">
         <div class="input-group mb-auto">
             <label class="input-group-text" for="select2">Форма</label>
-            <select name="select3[]" class="form-select" id="select2">
-                <option selected disabled>Выберите</option>
+            <select required name="select3[]" class="form-select" id="select2">
+                <option selected disabled value="non">Выберите</option>
                 <option value="круглый">Круглый</option>
                 <option value="прямоугольный">Прямоугольный</option>
             </select>
@@ -67,14 +67,14 @@
     <div style="width: 40%">
         <div class="input-group mb-auto">
             <label class="input-group-text" for="select4">Дата</label>
-            <input name="date" type="date" class="form-control" placeholder="введите дату" aria-label="count" aria-describedby="addon-wrapping">
+            <input required name="date" type="date" class="form-control" placeholder="введите дату" aria-label="count" aria-describedby="addon-wrapping">
         </div>
     </div>
     <br>
     <div style="width: 40%">
         <div class="input-group mb-auto">
             <label class="input-group-text" for="select4">Количество</label>
-            <input name="count" type="number" class="form-control" placeholder="введите количество" aria-label="count" aria-describedby="addon-wrapping">
+            <input required name="count" type="number" class="form-control" placeholder="введите количество" aria-label="count" aria-describedby="addon-wrapping">
         </div>
     </div>
     <br>

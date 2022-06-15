@@ -25,7 +25,7 @@ if ((isset($_POST["old"]) or isset($_POST["new"]))){
 
 
 <h3>
-    Admin profile page - <?=$surname?>
+    Страница администратора - <?=$surname?>
 </h3>
 
 <div class="formData">

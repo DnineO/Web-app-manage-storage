@@ -24,7 +24,7 @@ if ((isset($_POST["old"]) or isset($_POST["new"]))){
 
 
 <div>
-    <h1> User profile page <?=$surname?></h1>
+    <h1> Страница пользователя - <?=$surname?></h1>
 </div>
 
 

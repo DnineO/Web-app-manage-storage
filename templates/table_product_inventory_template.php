@@ -1,5 +1,5 @@
 <div id="product-block" class="block-with-info hide" style="width: 100%">
-    <h3>Список изделий</h3>
+    <h3>Инвентаризация</h3>
     <div class="menu-admin__table">
         <table id="my-table" class="table table-sm table-bordered">
             <thead class="table-light">
